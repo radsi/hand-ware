@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6svc10pht0ub"]
+[gd_scene load_steps=19 format=3 uid="uid://b6svc10pht0ub"]
 
-[ext_resource type="Script" uid="uid://d3x8srp1fi68e" path="res://scripts/player/player_hands_CLEAN.gd" id="1_0unv6"]
+[ext_resource type="Script" uid="uid://ox61vbh0pxnm" path="res://scripts/managers/clean_manager.gd" id="1_6t564"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="1_wjrym"]
+[ext_resource type="Texture2D" uid="uid://dfh8dj158rdtr" path="res://mini games sprites/planetcare-23coWmkTNSg-unsplash.jpg" id="2_7aiok"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_y0wth"]
 [ext_resource type="Texture2D" uid="uid://10h5uo53bdx8" path="res://mini games sprites/black tshirt.png" id="3_uxn8f"]
 [ext_resource type="Script" uid="uid://cicnahcxka6sk" path="res://scripts/managers/dirt_manager.gd" id="4_x8gsu"]
@@ -8,20 +10,27 @@
 [ext_resource type="Texture2D" uid="uid://d4kdnddqly4lp" path="res://intro sprites/TextBG3.png" id="6_uxn8f"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="7_rwsbi"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="8_jly5d"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="9_41vlf"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="9_41vlf"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="10_jr7kr"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="11_uxn8f"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="12_uxn8f"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="13_rwsbi"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="12_uxn8f"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="13_rwsbi"]
 [ext_resource type="AudioStream" uid="uid://danuifr8tmgr" path="res://sounds/365588__djpablochiriboga__fx-falda.wav" id="14_rwsbi"]
 [ext_resource type="Texture2D" uid="uid://b47wcx2sjxfrb" path="res://mini games sprites/star.png" id="15_jly5d"]
-[ext_resource type="Texture2D" uid="uid://c5egsxqp6yhiq" path="res://gallery item.png" id="16_wjrym"]
+[ext_resource type="Texture2D" uid="uid://c5egsxqp6yhiq" path="res://sprites/gallery item.png" id="16_wjrym"]
 
 [node name="Clean" type="Node2D"]
+script = ExtResource("1_6t564")
+
+[node name="Planetcare23CoWmkTnSgUnsplash" type="Sprite2D" parent="."]
+modulate = Color(0.3804492, 0.3804492, 0.3804492, 1)
+z_index = -1
+position = Vector2(576, 457)
+texture = ExtResource("2_7aiok")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("1_0unv6")
+script = ExtResource("1_wjrym")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -50,66 +59,77 @@ scale = Vector2(3.3333333, 3.3333333)
 script = ExtResource("4_x8gsu")
 
 [node name="Dirt" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(482, 440)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt2" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(627, 588)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt3" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(473, 522)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt4" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(471, 616)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt5" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(558, 687)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt6" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(660, 692)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt7" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(567, 509)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt8" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(652, 421)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt9" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(541, 337)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt10" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(431, 341)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_rwsbi")
 
 [node name="Dirt11" type="Sprite2D" parent="BlackTshirt/Dirty"]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 texture_filter = 1
 position = Vector2(657, 325)
 scale = Vector2(0.1, 0.1)
@@ -239,6 +259,7 @@ volume_db = 5.0
 pitch_scale = 2.0
 
 [node name="GalleryItem" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(1080, 29)
 scale = Vector2(3, 1.5)
@@ -261,7 +282,7 @@ pivot_offset = Vector2(96.5, 34)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_jly5d")
 theme_override_font_sizes/font_size = 64
-text = "0/3"
+text = "0/2"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

@@ -22,10 +22,12 @@ func _process(delta):
 		if timer >= 60:
 			globals._unlock_minigame("PingPong")
 	
-	spawn_interval = max(0.2, 0.8 * 200 / globals.game_speed)
+	var speed_factor = pow(globals.game_speed / 200.0, 4 if globals.is_single_minigame else 1.5)
+
+	spawn_interval = max(0.05, 0.8 / speed_factor)
 
 	for brick in get_children():
-		brick.position.y += globals.game_speed * delta
+		brick.position.y += speed_factor * 3.5
 		if not brick.has_meta("age"):
 			brick.set_meta("age", 0.0)
 		brick.set_meta("age", brick.get_meta("age") + delta)

@@ -1,19 +1,20 @@
-[gd_scene load_steps=17 format=3 uid="uid://ugrtkue07813"]
+[gd_scene load_steps=18 format=3 uid="uid://ugrtkue07813"]
 
-[ext_resource type="Script" uid="uid://dgnpmsnsy80pq" path="res://scripts/player/player_hands_APPLES.gd" id="1_nlc5t"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="1_jnh0o"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_mgt7l"]
 [ext_resource type="Texture2D" uid="uid://dtrw6xug0iydb" path="res://mini games sprites/tree.jpg" id="3_jscof"]
 [ext_resource type="Script" uid="uid://bwdl16e7m5rwg" path="res://scripts/managers/apples_manager.gd" id="4_pgdah"]
 [ext_resource type="Texture2D" uid="uid://bmqksb87eemda" path="res://mini games sprites/apple.png" id="5_uuwgh"]
 [ext_resource type="Texture2D" uid="uid://d2yw8dnl3jde6" path="res://mini games sprites/basket.png" id="6_1y4su"]
+[ext_resource type="Script" uid="uid://dgstnq7pwgtht" path="res://scripts/grabbable.gd" id="6_uxlq8"]
 [ext_resource type="Texture2D" uid="uid://b5w6bw3r2go8e" path="res://intro sprites/TextBG2.png" id="7_jnh0o"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="8_1y4su"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="9_jnh0o"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="11_1xauh"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="11_pgdah"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="11_pgdah"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="12_jscof"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="13_jscof"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="14_uuwgh"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="13_jscof"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="14_uuwgh"]
 [ext_resource type="AudioStream" uid="uid://pxkkdv51gu28" path="res://sounds/594277__crazychuy__stepping-on-branch.wav" id="15_uuwgh"]
 [ext_resource type="AudioStream" uid="uid://buuwckifs3l0q" path="res://sounds/steping-on-dry-leaf.wav" id="16_1y4su"]
 
@@ -21,7 +22,7 @@
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("1_nlc5t")
+script = ExtResource("1_jnh0o")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -47,45 +48,61 @@ texture = ExtResource("3_jscof")
 [node name="Apples" type="CanvasGroup" parent="."]
 script = ExtResource("4_pgdah")
 
-[node name="Apple" type="Sprite2D" parent="Apples"]
+[node name="Apple" type="Sprite2D" parent="Apples" node_paths=PackedStringArray("grab_sound") groups=["grabbable"]]
 position = Vector2(288, 544)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uuwgh")
+script = ExtResource("6_uxlq8")
+grab_sound = NodePath("../../AudioStreamPlayer2D")
 
-[node name="Apple2" type="Sprite2D" parent="Apples"]
+[node name="Apple2" type="Sprite2D" parent="Apples" node_paths=PackedStringArray("grab_sound") groups=["grabbable"]]
 position = Vector2(144, 440)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uuwgh")
+script = ExtResource("6_uxlq8")
+grab_sound = NodePath("../../AudioStreamPlayer2D")
 
-[node name="Apple3" type="Sprite2D" parent="Apples"]
+[node name="Apple3" type="Sprite2D" parent="Apples" node_paths=PackedStringArray("grab_sound") groups=["grabbable"]]
 position = Vector2(264, 808)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uuwgh")
+script = ExtResource("6_uxlq8")
+grab_sound = NodePath("../../AudioStreamPlayer2D")
 
-[node name="Apple4" type="Sprite2D" parent="Apples"]
+[node name="Apple4" type="Sprite2D" parent="Apples" node_paths=PackedStringArray("grab_sound") groups=["grabbable"]]
 position = Vector2(592, 624)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uuwgh")
+script = ExtResource("6_uxlq8")
+grab_sound = NodePath("../../AudioStreamPlayer2D")
 
-[node name="Apple5" type="Sprite2D" parent="Apples"]
+[node name="Apple5" type="Sprite2D" parent="Apples" node_paths=PackedStringArray("grab_sound") groups=["grabbable"]]
 position = Vector2(1024, 400)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uuwgh")
+script = ExtResource("6_uxlq8")
+grab_sound = NodePath("../../AudioStreamPlayer2D")
 
-[node name="Apple6" type="Sprite2D" parent="Apples"]
+[node name="Apple6" type="Sprite2D" parent="Apples" node_paths=PackedStringArray("grab_sound") groups=["grabbable"]]
 position = Vector2(720, 552)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uuwgh")
+script = ExtResource("6_uxlq8")
+grab_sound = NodePath("../../AudioStreamPlayer2D")
 
-[node name="Apple7" type="Sprite2D" parent="Apples"]
+[node name="Apple7" type="Sprite2D" parent="Apples" node_paths=PackedStringArray("grab_sound") groups=["grabbable"]]
 position = Vector2(880, 632)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uuwgh")
+script = ExtResource("6_uxlq8")
+grab_sound = NodePath("../../AudioStreamPlayer2D")
 
-[node name="Apple8" type="Sprite2D" parent="Apples"]
+[node name="Apple8" type="Sprite2D" parent="Apples" node_paths=PackedStringArray("grab_sound") groups=["grabbable"]]
 position = Vector2(896.0001, 464)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_uuwgh")
+script = ExtResource("6_uxlq8")
+grab_sound = NodePath("../../AudioStreamPlayer2D")
 
 [node name="Basket" type="Sprite2D" parent="."]
 position = Vector2(540, 888)

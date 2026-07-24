@@ -1,22 +1,24 @@
-[gd_scene load_steps=68 format=3 uid="uid://xalttcmbl3b5"]
+[gd_scene load_steps=69 format=3 uid="uid://xalttcmbl3b5"]
 
 [ext_resource type="Script" uid="uid://b5ca5q0w0qxkn" path="res://scripts/managers/boss_manager.gd" id="1_khkct"]
+[ext_resource type="Script" uid="uid://cdgq6wv34i5ag" path="res://scripts/minigames/vendor_HANDS.gd" id="2_jphvc"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_khkct"]
-[ext_resource type="Script" uid="uid://q7wuu6gbpxpu" path="res://scripts/player/player_hands_BOSS.gd" id="3_y7fmv"]
 [ext_resource type="Texture2D" uid="uid://b8wryomlr8t2m" path="res://intro sprites/TextBG8.png" id="4_jphvc"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="4_y7fmv"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="5_gm162"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="6_ic5a2"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="6_ic5a2"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="7_7hsu1"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="8_2qa0m"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="9_po1nx"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="10_ocr2n"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="9_po1nx"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="10_ocr2n"]
 [ext_resource type="Texture2D" uid="uid://cnjpqqh7tdgsr" path="res://mini games sprites/bosses/gas.png" id="12_y7fmv"]
 [ext_resource type="Texture2D" uid="uid://daw4o2keyc7hv" path="res://mini games sprites/bosses/eye.png" id="13_gm162"]
 [ext_resource type="Texture2D" uid="uid://bla5fwgqcnobx" path="res://materiales/samurai_gradient.tres" id="14_gm162"]
-[ext_resource type="Texture2D" uid="uid://cky3def6mdq2m" path="res://mini games sprites/line.png" id="15_ic5a2"]
+[ext_resource type="Texture2D" uid="uid://cc0ax8foo7u7l" path="res://mini games sprites/concrete.png" id="14_vswnm"]
+[ext_resource type="Shader" uid="uid://cak0rph0i2ccl" path="res://scripts/shaders/wall shake.gdshader" id="15_x30yr"]
 [ext_resource type="Texture2D" uid="uid://dn4d2gyjjj778" path="res://mini games sprites/red tube.png" id="16_po1nx"]
 [ext_resource type="Texture2D" uid="uid://4i1cf5x5j8lv" path="res://mini games sprites/valve.png" id="17_ocr2n"]
+[ext_resource type="Script" uid="uid://m4ljila17yuq" path="res://scripts/minigames/wall_interactable.gd" id="17_w6y7l"]
 [ext_resource type="Texture2D" uid="uid://bg66suqt4vh64" path="res://mini games sprites/smoke_spritesheet.png" id="18_u53kq"]
 [ext_resource type="AudioStream" uid="uid://by2vvbf4nqgcc" path="res://sounds/valve.mp3" id="19_u53kq"]
 [ext_resource type="AudioStream" uid="uid://u24behjxd305" path="res://sounds/steam burst.wav" id="20_gw5ar"]
@@ -28,16 +30,13 @@
 [ext_resource type="AudioStream" uid="uid://cdcool2oubnve" path="res://sounds/samurai-slash.wav" id="25_i5hyn"]
 [ext_resource type="AudioStream" uid="uid://bvliteec35kkp" path="res://sounds/explosion.wav" id="26_6th6l"]
 [ext_resource type="Texture2D" uid="uid://catke2m4m2e7w" path="res://mini games sprites/keypad.png" id="27_msxgh"]
-[ext_resource type="Texture2D" uid="uid://clpspuy257db8" path="res://message.png" id="28_jy1g1"]
+[ext_resource type="Texture2D" uid="uid://clpspuy257db8" path="res://sprites/message.png" id="28_jy1g1"]
 [ext_resource type="AudioStream" uid="uid://dj2kyl4hma7fy" path="res://sounds/short-cut-off-beep.wav" id="29_vswnm"]
 [ext_resource type="AudioStream" uid="uid://btql7gwdyj5wq" path="res://sounds/abdrtar__wrong.mp3" id="30_jphvc"]
 [ext_resource type="AudioStream" uid="uid://dakt8x08qkux6" path="res://sounds/krokulator__lever.wav" id="31_x30yr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u53kq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jphvc"]
 size = Vector2(27.666687, 79.33334)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnhdv"]
-size = Vector2(422, 588)
 
 [sub_resource type="Shader" id="Shader_3m7st"]
 code = "shader_type spatial;
@@ -63,8 +62,10 @@ shader = SubResource("Shader_3m7st")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hsu1"]
 size = Vector2(33.442047, 37.150192)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qa0m"]
-size = Vector2(529, 35.000015)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6y7l"]
+shader = ExtResource("15_x30yr")
+shader_parameter/shake_amount = 0.0
+shader_parameter/shake_speed = 25.0
 
 [sub_resource type="Animation" id="Animation_cdg51"]
 length = 0.001
@@ -383,7 +384,7 @@ script = ExtResource("1_khkct")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 692)
-script = ExtResource("3_y7fmv")
+script = ExtResource("2_jphvc")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -392,14 +393,14 @@ position = Vector2(-50, 100)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_khkct")
 
-[node name="Areahand" type="Area2D" parent="CanvasGroup/Hand1" groups=["hand_areas"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasGroup/Hand1/Areahand"]
-position = Vector2(-1.5, 1)
-shape = SubResource("RectangleShape2D_u53kq")
-
 [node name="finger tip" type="Node2D" parent="CanvasGroup/Hand1"]
 position = Vector2(7.3333335, -38)
+
+[node name="Areahand" type="Area2D" parent="CanvasGroup/Hand1"]
+position = Vector2(1.3333334, 2.6666667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasGroup/Hand1/Areahand"]
+shape = SubResource("RectangleShape2D_jphvc")
 
 [node name="Hand2" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -409,16 +410,17 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_khkct")
 flip_h = true
 
-[node name="Areahand" type="Area2D" parent="CanvasGroup/Hand2" groups=["hand_areas"]]
-position = Vector2(1.3333334, 2.6666667)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasGroup/Hand2/Areahand"]
-shape = SubResource("RectangleShape2D_u53kq")
-
 [node name="finger tip" type="Node2D" parent="CanvasGroup/Hand2"]
 position = Vector2(-7.3333335, -38)
 
+[node name="Areahand" type="Area2D" parent="CanvasGroup/Hand2"]
+position = Vector2(1.3333334, 2.6666667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasGroup/Hand2/Areahand"]
+shape = SubResource("RectangleShape2D_jphvc")
+
 [node name="TextBg1" type="Sprite2D" parent="."]
+visible = false
 z_index = 999
 texture_filter = 1
 position = Vector2(530, 400)
@@ -515,7 +517,7 @@ position = Vector2(-60.36035, 9.536743e-05)
 scale = Vector2(0.90090084, 0.9433962)
 texture = ExtResource("10_ocr2n")
 
-[node name="Gas" type="Sprite2D" parent="."]
+[node name="Gas" type="Sprite2D" parent="." groups=["solids"]]
 texture_filter = 1
 position = Vector2(540, 185)
 scale = Vector2(0.5, 0.5)
@@ -529,12 +531,6 @@ texture = ExtResource("13_gm162")
 position = Vector2(100, -126)
 texture = ExtResource("13_gm162")
 flip_h = true
-
-[node name="BossArea" type="StaticBody2D" parent="Gas"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gas/BossArea"]
-position = Vector2(-9, -10)
-shape = SubResource("RectangleShape2D_fnhdv")
 
 [node name="Slash1" type="CanvasGroup" parent="."]
 
@@ -808,27 +804,22 @@ position = Vector2(10.379395, 8.637124)
 scale = Vector2(0.9999998, 0.99999964)
 shape = SubResource("RectangleShape2D_7hsu1")
 
-[node name="Wall" type="Sprite2D" parent="." groups=["wall"]]
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
+[node name="Wall" type="Sprite2D" parent="." groups=["solids"]]
 z_index = 99
-position = Vector2(538, 410)
-scale = Vector2(2.0199997, 1)
-texture = ExtResource("15_ic5a2")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
-position = Vector2(0, -8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
-position = Vector2(2.5, 1.5)
-shape = SubResource("RectangleShape2D_2qa0m")
+material = SubResource("ShaderMaterial_w6y7l")
+position = Vector2(537.3334, 399.4467)
+rotation = 1.5707964
+scale = Vector2(0.9659553, 2.2527776)
+texture = ExtResource("14_vswnm")
+script = ExtResource("17_w6y7l")
+breakable = true
+is_boss = true
 
 [node name="Valve" type="CanvasGroup" parent="."]
-visible = false
 z_index = -1
-position = Vector2(0, 360)
+position = Vector2(0, 444)
 
 [node name="Valve" type="Sprite2D" parent="Valve"]
-modulate = Color(6.6697066e-05, 1.8106998, 2.2682278, 1)
 z_index = 1
 position = Vector2(544, 899)
 scale = Vector2(2.5, 2.5)
@@ -836,7 +827,6 @@ texture = ExtResource("17_ocr2n")
 offset = Vector2(0.80000305, -1.199997)
 
 [node name="RedTube" type="Sprite2D" parent="Valve"]
-modulate = Color(6.6697066e-05, 1.8106998, 2.2682278, 1)
 position = Vector2(540, 1669)
 scale = Vector2(0.2, 1)
 texture = ExtResource("16_po1nx")
@@ -1038,8 +1028,3 @@ z_index = -10
 position = Vector2(583.00006, 540)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("21_jphvc")
-
-[connection signal="body_shape_entered" from="CanvasGroup/Hand1/Areahand" to="CanvasGroup" method="_on_areahand_body_shape_entered"]
-[connection signal="body_shape_exited" from="CanvasGroup/Hand1/Areahand" to="CanvasGroup" method="_on_areahand_body_shape_exited"]
-[connection signal="body_shape_entered" from="CanvasGroup/Hand2/Areahand" to="CanvasGroup" method="_on_areahand_body_shape_entered"]
-[connection signal="body_shape_exited" from="CanvasGroup/Hand2/Areahand" to="CanvasGroup" method="_on_areahand_body_shape_exited"]

@@ -1,17 +1,17 @@
 [gd_scene load_steps=21 format=3 uid="uid://ihtm3qlfv6oh"]
 
-[ext_resource type="Script" uid="uid://sjti3iodk2dq" path="res://scripts/player/player_hands_VALVE.gd" id="1_2hlfk"]
 [ext_resource type="Script" uid="uid://b631d85gkhl01" path="res://scripts/managers/valve_manager.gd" id="1_cdg51"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_06nur"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="2_gy1gp"]
 [ext_resource type="Texture2D" uid="uid://dd1uxcrghspfr" path="res://intro sprites/TextBG6.png" id="3_bbham"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="4_cdg51"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="5_gy1gp"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="6_o7akk"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="6_o7akk"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="7_en67s"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="8_gadvc"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="9_o5kpj"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="10_qkx33"]
-[ext_resource type="Texture2D" uid="uid://b171847ebb5e0" path="res://valve bg.png" id="11_yucg3"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="9_o5kpj"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="10_qkx33"]
+[ext_resource type="Texture2D" uid="uid://b171847ebb5e0" path="res://sprites/valve bg.png" id="11_yucg3"]
 [ext_resource type="Texture2D" uid="uid://dn4d2gyjjj778" path="res://mini games sprites/red tube.png" id="12_txt2c"]
 [ext_resource type="Texture2D" uid="uid://4i1cf5x5j8lv" path="res://mini games sprites/valve.png" id="13_yr4ht"]
 [ext_resource type="Texture2D" uid="uid://bg66suqt4vh64" path="res://mini games sprites/smoke_spritesheet.png" id="14_06nur"]
@@ -137,7 +137,7 @@ script = ExtResource("1_cdg51")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("1_2hlfk")
+script = ExtResource("2_gy1gp")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10

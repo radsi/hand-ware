@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 globals="*res://globals.gd"
-Talo="*res://addons/talo/talo_manager.gd"
 
 [display]
 
@@ -29,7 +28,12 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/talo/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+grabbable=""
+solids=""
 
 [rendering]
 

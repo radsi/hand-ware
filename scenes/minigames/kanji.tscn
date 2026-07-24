@@ -1,22 +1,23 @@
-[gd_scene load_steps=20 format=3 uid="uid://u6b87wyymavv"]
+[gd_scene load_steps=21 format=3 uid="uid://u6b87wyymavv"]
 
 [ext_resource type="Script" uid="uid://bnoykmuyjw0a6" path="res://scripts/managers/kanji_manager.gd" id="1_u58il"]
-[ext_resource type="Texture2D" uid="uid://5p8dd0ic5083" path="res://free-paper-background-1-897075787.jpg" id="1_xk8cc"]
-[ext_resource type="Script" uid="uid://dr02nm5vuq2xw" path="res://scripts/player/player_hands_KANJI.gd" id="3_eynhl"]
+[ext_resource type="Texture2D" uid="uid://5p8dd0ic5083" path="res://sprites/free-paper-background-1-897075787.jpg" id="1_xk8cc"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="3_0evvd"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="4_wh7ls"]
 [ext_resource type="Texture2D" uid="uid://dd1uxcrghspfr" path="res://intro sprites/TextBG6.png" id="5_iwyxu"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="6_bykoj"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="7_52a6r"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="8_k1nlf"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="8_k1nlf"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="9_tg30l"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="10_np1hd"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="11_0evvd"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="12_5740h"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="11_0evvd"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="12_5740h"]
 [ext_resource type="Texture2D" uid="uid://dm14g7mimuh55" path="res://mini games sprites/ink bottle back.png" id="13_bykoj"]
 [ext_resource type="FontFile" uid="uid://cj44ycu3swdbn" path="res://NotoSansJP-Regular.ttf" id="13_np1hd"]
 [ext_resource type="Texture2D" uid="uid://pn402f6cmcfh" path="res://mini games sprites/ink bottle front.png" id="14_52a6r"]
 [ext_resource type="Texture2D" uid="uid://b32lqu37vsfby" path="res://mini games sprites/brush.png" id="15_k1nlf"]
 [ext_resource type="Texture2D" uid="uid://rbkhxcq58hdi" path="res://mini games sprites/ink/ink1.png" id="16_k1nlf"]
+[ext_resource type="Script" uid="uid://c8ct50wpayead" path="res://scripts/minigames/brush_grabbable.gd" id="17_0evvd"]
 [ext_resource type="Texture2D" uid="uid://cd4hk207vhho0" path="res://mini games sprites/ink/ink2.png" id="17_tg30l"]
 [ext_resource type="AudioStream" uid="uid://bplhh8dyhjbdu" path="res://sounds/pencil-writing-on-paper-3-strokes-take-b.wav" id="18_tg30l"]
 
@@ -32,7 +33,7 @@ texture = ExtResource("1_xk8cc")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("3_eynhl")
+script = ExtResource("3_0evvd")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -147,6 +148,7 @@ texture = ExtResource("12_5740h")
 z_index = -1
 offset_right = 1080.0
 offset_bottom = 1080.0
+pivot_offset = Vector2(540, 540)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 disable_3d = true
@@ -159,11 +161,14 @@ render_target_update_mode = 4
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport"]
 anchors_preset = -1
-anchor_right = 0.08
-offset_left = 402.0
-offset_top = 151.0
-offset_right = 623.6
-offset_bottom = 598.0
+anchor_left = 0.372
+anchor_top = 0.14
+anchor_right = 0.657
+anchor_bottom = 0.554
+offset_left = 0.23999023
+offset_top = -0.19999695
+offset_right = 0.44000244
+offset_bottom = -0.32000732
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(154, 223)
@@ -184,11 +189,12 @@ z_index = -1
 texture_filter = 1
 texture = ExtResource("14_52a6r")
 
-[node name="Brush" type="Sprite2D" parent="bottle"]
+[node name="Brush" type="Sprite2D" parent="bottle" groups=["grabbable"]]
 z_index = -1
 position = Vector2(-10.666668, -45.333313)
 rotation = -0.2009311
 texture = ExtResource("15_k1nlf")
+script = ExtResource("17_0evvd")
 
 [node name="Tip" type="Node2D" parent="bottle/Brush"]
 position = Vector2(3.575, 283.075)

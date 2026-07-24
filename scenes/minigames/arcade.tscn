@@ -1,21 +1,21 @@
 [gd_scene load_steps=21 format=3 uid="uid://c73lq0ln0yrv"]
 
-[ext_resource type="Texture2D" uid="uid://buays2o7k4ueg" path="res://button base.png" id="1_eobic"]
-[ext_resource type="Texture2D" uid="uid://cw7k78gsoutx6" path="res://joystick base.png" id="1_ice4p"]
+[ext_resource type="Texture2D" uid="uid://buays2o7k4ueg" path="res://sprites/button base.png" id="1_eobic"]
+[ext_resource type="Texture2D" uid="uid://cw7k78gsoutx6" path="res://sprites/joystick base.png" id="1_ice4p"]
 [ext_resource type="Script" uid="uid://b0ui0w2ylbhwe" path="res://scripts/managers/arcade_manager.gd" id="1_r6yp2"]
-[ext_resource type="Texture2D" uid="uid://ce8dlyk056i4k" path="res://joystick head.png" id="2_c74ga"]
-[ext_resource type="Texture2D" uid="uid://b6cg5465g0qel" path="res://button head.png" id="2_r6yp2"]
+[ext_resource type="Texture2D" uid="uid://ce8dlyk056i4k" path="res://sprites/joystick head.png" id="2_c74ga"]
+[ext_resource type="Texture2D" uid="uid://b6cg5465g0qel" path="res://sprites/button head.png" id="2_r6yp2"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="4_r6yp2"]
 [ext_resource type="Texture2D" uid="uid://bfohpwk48a12h" path="res://intro sprites/TextBG4.png" id="5_jepv5"]
+[ext_resource type="Script" uid="uid://xrc5sqmpy3jn" path="res://scripts/minigames/arcade_HANDS.gd" id="6_behgj"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="6_n1bbd"]
-[ext_resource type="Script" uid="uid://1ita4kxtp3sq" path="res://scripts/player/player_hands_ARCADE.gd" id="6_r6yp2"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="7_u2cey"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="8_behgj"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="8_behgj"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="9_jxsqg"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="10_pkx3q"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="11_w0rxa"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="12_c81br"]
-[ext_resource type="Texture2D" uid="uid://dwqm5laa2uilq" path="res://SpaceInvaders.png" id="16_jepv5"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="11_w0rxa"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="12_c81br"]
+[ext_resource type="Texture2D" uid="uid://dwqm5laa2uilq" path="res://sprites/SpaceInvaders.png" id="16_jepv5"]
 [ext_resource type="Texture2D" uid="uid://44ikvt76apyf" path="res://mini games sprites/arcade machine.png" id="17_n1bbd"]
 [ext_resource type="AudioStream" uid="uid://c4eyvnc2q4brw" path="res://sounds/pew-shot.wav" id="18_behgj"]
 [ext_resource type="AudioStream" uid="uid://7twjgn6xrt74" path="res://sounds/explosion retro.wav" id="19_jxsqg"]
@@ -63,7 +63,7 @@ offset = Vector2(0, -10)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("6_r6yp2")
+script = ExtResource("6_behgj")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -187,7 +187,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="playerShip" type="Sprite2D" parent="game"]
 texture_filter = 1
-position = Vector2(214, 615)
+position = Vector2(540, 615)
 scale = Vector2(4, 4)
 texture = ExtResource("16_jepv5")
 offset = Vector2(-0.5, 0)
@@ -196,204 +196,6 @@ vframes = 5
 frame = 4
 
 [node name="enemies" type="CanvasGroup" parent="."]
-
-[node name="enemy" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(226, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy2" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(290, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy2/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy3" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(354, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy3/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy4" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(418, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy4/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy5" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(482, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy5/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy6" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(546, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy6/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy7" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(610, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy7"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy7/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy8" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(674, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy8/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy9" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(738, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy9"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy9/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy10" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(802, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy10"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy10/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
-
-[node name="enemy11" type="Sprite2D" parent="enemies"]
-texture_filter = 1
-position = Vector2(866, 160)
-scale = Vector2(5, 5)
-texture = ExtResource("16_jepv5")
-offset = Vector2(-0.5, 0)
-hframes = 7
-vframes = 5
-frame = 7
-region_enabled = true
-region_rect = Rect2(0, 0, 112, 80)
-
-[node name="Area2D" type="Area2D" parent="enemies/enemy11"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/enemy11/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_jepv5")
 
 [node name="enemy12" type="Sprite2D" parent="enemies"]
 texture_filter = 1

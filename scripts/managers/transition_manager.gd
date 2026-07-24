@@ -41,10 +41,10 @@ func _ready() -> void:
 	
 	if globals.has_lost_life:
 		globals.has_lost_life = false
-		globals.deads += 1
-		if globals.deads >= 10:
+		globals.deaths += 1
+		if globals.deaths >= 10:
 			globals._unlock_minigame("Valve")
-		if globals.deads >= 20:
+		if globals.deaths >= 20:
 			globals._unlock_minigame("Samurai")
 		text.text = messages_bad[randf_range(0, messages_bad.size())]
 		hands.flip_v = true

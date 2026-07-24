@@ -1,6 +1,6 @@
 extends Node
 
-@onready var gallery_locked_sprite = preload("res://gallery item locked.png")
+@onready var gallery_locked_sprite = preload("res://sprites/gallery item locked.png")
 @onready var bg1 = $Bg
 @onready var bg2 = $Bg2
 @onready var button_back = $buttonback
@@ -84,7 +84,7 @@ func _input(event):
 		else:
 			konami_progress = 0
 
-	if event is InputEventJoypadButton and event.pressed and konami_progress < 3:
+	if event is InputEventJoypadButton and event.pressed and konami_progress < 4:
 		if event.button_index == JOY_BUTTON_B:
 			get_tree().change_scene_to_file("res://scenes/menu.tscn")
 		elif event.button_index == JOY_BUTTON_A:

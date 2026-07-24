@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://dykhujf08cqwk" path="res://scripts/menu.gd" id="1_lj6h2"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="2_u3bib"]
 [ext_resource type="Texture2D" uid="uid://l2atiswygex0" path="res://transitions/bg.jpg" id="3_0ctdu"]
-[ext_resource type="Texture2D" uid="uid://cw64dvnkk3oqm" path="res://arrow.png" id="3_2fbfq"]
-[ext_resource type="Texture2D" uid="uid://b1a546gu0sy1e" path="res://arrow_green.png" id="5_kyhnv"]
-[ext_resource type="Texture2D" uid="uid://bh3rusuqfqwpi" path="res://arrow2.png" id="5_ooihk"]
-[ext_resource type="Texture2D" uid="uid://c2isxy3781r0g" path="res://arrow_green2.png" id="6_ooihk"]
+[ext_resource type="Texture2D" uid="uid://cw64dvnkk3oqm" path="res://sprites/arrow.png" id="3_2fbfq"]
+[ext_resource type="Texture2D" uid="uid://b1a546gu0sy1e" path="res://sprites/arrow_green.png" id="5_kyhnv"]
+[ext_resource type="Texture2D" uid="uid://bh3rusuqfqwpi" path="res://sprites/arrow2.png" id="5_ooihk"]
+[ext_resource type="Texture2D" uid="uid://c2isxy3781r0g" path="res://sprites/arrow_green2.png" id="6_ooihk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fbfq"]
 
@@ -165,7 +165,8 @@ Puzzle icon: pngmart.com
 Valve sfx: Department64 - freesound.org
 Samurai: swordis.com
 Dojo background: wallpaperaccess.com
-Boss hit sfx: n_audioman - freesound.org"
+Boss hit sfx: n_audioman - freesound.org
+Laundry bg: unsplash.com"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 162

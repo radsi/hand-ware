@@ -1,10 +1,12 @@
 extends Node
 
+const SAVE_PATH := "user://savegame.cfg"
+
+const LONG_MODE_SPEED_RAMP: float = 0.5
+
 var difficult_tier = 1
 
-var username = ""
-var pending_score = false
-var deads = 0
+var deaths = 0
 
 var using_gamepad = false
 var hands_color = Color(1,1,1)
@@ -90,11 +92,13 @@ func _ready():
 	music_player.bus = "Master"
 	music_player.volume_db = -5
 	music_player.play()
+	
+	load_save()
 
 func _process(delta: float) -> void:
 	if is_single_minigame and is_long:
-		game_speed += delta / 2
-		hands_drain_rate += delta / 2
+		game_speed += LONG_MODE_SPEED_RAMP * delta
+		hands_drain_rate += LONG_MODE_SPEED_RAMP * delta
 		return
 	
 	if (not roll_started and not is_single_minigame) or is_on_transition or is_playing_minigame_anim:
@@ -113,11 +117,13 @@ func _process(delta: float) -> void:
 	time_left -= delta
 
 func start_single_minigame(minigame):
+	incresing_speed = false
 	music_player.stream = music_audio
 	audio_player.stream = whistle_audio
 	is_single_minigame = true
 	music_player.play()
 	audio_player.play()
+	game_score = -1
 	game_speed = 200
 	game_time = 10
 	game_time_long = 10
@@ -132,6 +138,7 @@ func start_single_minigame(minigame):
 	_start_roll()
 
 func start_roll_from_menu():
+	incresing_speed = false
 	music_player.stream = music_audio
 	audio_player.stream = whistle_audio
 	music_player.play()
@@ -150,17 +157,19 @@ func start_roll_from_menu():
 	game_score = -1
 	_start_roll()
 
+func _is_long_scene(scene_path: String) -> bool:
+	return scene_path.ends_with(" long.tscn")
+
 func _start_roll():
 	
-	if game_score % 4 == 0:
+	if game_score > 0 and game_score % 4 == 0:
 		incresing_speed = true
 		game_speed += 50
-		game_time -= 1
+		game_time = max(3.0, game_time - 1)
 		game_time_long += 5
 		hands_drain_rate += 2.5
 	
 	if pool.is_empty():
-		pool = []
 		for s in all_used_scenes:
 			if s != last_scene:
 				pool.append(s)
@@ -192,7 +201,7 @@ func _start_roll():
 		music_player.stream = music_audio
 		music_player.play()
 
-	if last_scene.contains("long"):
+	if _is_long_scene(last_scene):
 		is_long = true
 		minigame_completed = true
 		time_left = game_time_long
@@ -215,42 +224,43 @@ func _unlock_minigame(minigame: String, with_message = true):
 	all_used_scenes.push_back(scene_path)
 	if with_message: pending_menu_messages.push_back("Unlocked new .minigame: "+minigame+"!")
 	
+	if all_unlocked_scenes.size() >= 17:
+		_unlock_minigame("Boss")
+	
+	save_game()
+	
 func _unlock_hands(hands: String, with_message = true):
 	if all_unlocked_hands.has(hands): return
 	all_unlocked_hands.push_back(hands)
 	if with_message: pending_menu_messages.push_back("Unlocked new .hands: "+hands+"!")
+	
+	save_game()
 
 func _game_over():
 	has_lost_life = false
-	
-	if is_single_minigame == false:
-		pending_score = true
 	
 	if game_score >= 4:
 		_unlock_minigame("Arcade")
 		_unlock_minigame("Toast")
 		_unlock_hands("hearts")
 	
-	if game_score >= 8:
+	if game_score >= 10:
 		_unlock_hands("camo")
 		
-	if game_score >= 10:
-		_unlock_minigame("Rope")
-		_unlock_hands("caution")
-		
 	if game_score >= 15:
+		_unlock_minigame("Rope")
+		_unlock_hands("dalmata")
+		
+	if game_score >= 20:
 		_unlock_minigame("Bonfire")
 		_unlock_hands("fire")
 	
-	if game_score >= 20:
-		_unlock_minigame("Kanji")
-		_unlock_hands("dalmata")
+	if game_score >= 25:
+		_unlock_minigame("Soccer")
+		_unlock_hands("caution")
 	
 	if game_score >= 30:
-		_unlock_minigame("Soccer")
-	
-	if all_unlocked_scenes.size() >= 17:
-		_unlock_minigame("Boss")
+		_unlock_minigame("Kanji")
 	
 	roll_started = false
 	is_on_transition = false
@@ -277,3 +287,64 @@ func _game_over():
 	music_player.stream = menu_audio
 	music_player.play()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+func save_game():
+	var save := ConfigFile.new()
+
+	save.set_value(
+		"unlock",
+		"minigames",
+		all_unlocked_scenes
+	)
+
+	save.set_value(
+		"unlock",
+		"hands",
+		all_unlocked_hands
+	)
+	
+	save.set_value(
+		"unlock",
+		"deaths",
+		deaths
+	)
+
+	save.save(SAVE_PATH)
+
+
+
+func load_save():
+
+	var save := ConfigFile.new()
+
+	var err = save.load(SAVE_PATH)
+
+	if err != OK:
+		save_game()
+		return
+
+
+	var saved_scenes = save.get_value(
+		"unlock",
+		"minigames",
+		null
+	)
+
+	var saved_hands = save.get_value(
+		"unlock",
+		"hands",
+		null
+	)
+	
+	var deaths = save.get_value(
+		"unlock",
+		"death",
+		0
+	)
+
+	if saved_scenes != null:
+		all_unlocked_scenes = saved_scenes
+		all_used_scenes = all_unlocked_scenes.duplicate()
+
+	if saved_hands != null:
+		all_unlocked_hands = saved_hands

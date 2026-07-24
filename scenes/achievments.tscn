@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://lnyjom2ub715" path="res://scripts/managers/achievments_manager.gd" id="1_mpcko"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="2_qr7qa"]
-[ext_resource type="Texture2D" uid="uid://cw64dvnkk3oqm" path="res://arrow.png" id="3_pafnh"]
-[ext_resource type="Texture2D" uid="uid://b1a546gu0sy1e" path="res://arrow_green.png" id="4_syhwi"]
-[ext_resource type="Texture2D" uid="uid://bh3rusuqfqwpi" path="res://arrow2.png" id="5_32ivr"]
-[ext_resource type="Texture2D" uid="uid://c2isxy3781r0g" path="res://arrow_green2.png" id="6_6sjds"]
+[ext_resource type="Texture2D" uid="uid://cw64dvnkk3oqm" path="res://sprites/arrow.png" id="3_pafnh"]
+[ext_resource type="Texture2D" uid="uid://b1a546gu0sy1e" path="res://sprites/arrow_green.png" id="4_syhwi"]
+[ext_resource type="Texture2D" uid="uid://bh3rusuqfqwpi" path="res://sprites/arrow2.png" id="5_32ivr"]
+[ext_resource type="Texture2D" uid="uid://c2isxy3781r0g" path="res://sprites/arrow_green2.png" id="6_6sjds"]
 [ext_resource type="Texture2D" uid="uid://l2atiswygex0" path="res://transitions/bg.jpg" id="7_jcyua"]
-[ext_resource type="Texture2D" uid="uid://b8svlp3txe6yc" path="res://difficult_element.png" id="8_6sjds"]
-[ext_resource type="Texture2D" uid="uid://cdq8h0bosowb" path="res://gallery item locked.png" id="9_jcyua"]
-[ext_resource type="Texture2D" uid="uid://dwqm5laa2uilq" path="res://SpaceInvaders.png" id="10_glprp"]
+[ext_resource type="Texture2D" uid="uid://b8svlp3txe6yc" path="res://sprites/difficult_element.png" id="8_6sjds"]
+[ext_resource type="Texture2D" uid="uid://cdq8h0bosowb" path="res://sprites/gallery item locked.png" id="9_jcyua"]
+[ext_resource type="Texture2D" uid="uid://dwqm5laa2uilq" path="res://sprites/SpaceInvaders.png" id="10_glprp"]
 [ext_resource type="Texture2D" uid="uid://b1lsk1k184epd" path="res://hand sprites/open hand_hearts.png" id="10_x15c4"]
 [ext_resource type="Texture2D" uid="uid://balhamsanka73" path="res://mini games sprites/toast.png" id="11_r74oh"]
 [ext_resource type="Texture2D" uid="uid://cp34ei74jek0o" path="res://hand sprites/fist hand_heats.png" id="11_whyup"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://d1mrao3pdvet" path="res://hand sprites/open hand_fire.png" id="16_yj46j"]
 [ext_resource type="Texture2D" uid="uid://cfnw2a1umf03s" path="res://hand sprites/fist hand_fire.png" id="17_2kf75"]
 [ext_resource type="Texture2D" uid="uid://bhfjwa827leh5" path="res://hand sprites/open hand_dalmata.png" id="18_xqofr"]
-[ext_resource type="Texture2D" uid="uid://ctg81sh5c2by3" path="res://woodicon.png" id="19_03dec"]
+[ext_resource type="Texture2D" uid="uid://ctg81sh5c2by3" path="res://sprites/woodicon.png" id="19_03dec"]
 [ext_resource type="Texture2D" uid="uid://tghgj6km07yq" path="res://hand sprites/fist hand_dalmata.png" id="19_vw0f0"]
 [ext_resource type="Texture2D" uid="uid://v6k8ihhvp02k" path="res://hand sprites/open hand_striped.png" id="20_pjuic"]
 [ext_resource type="Texture2D" uid="uid://bi6k5y5xsvmvh" path="res://hand sprites/fist hand_striped.png" id="21_glprp"]
@@ -33,10 +33,10 @@
 [ext_resource type="Texture2D" uid="uid://dvywnga1sjvia" path="res://mini games sprites/soccer ball.png" id="25_7rfex"]
 [ext_resource type="Texture2D" uid="uid://4i1cf5x5j8lv" path="res://mini games sprites/valve.png" id="26_03dec"]
 [ext_resource type="Texture2D" uid="uid://d1fhevnjk7d0e" path="res://mini games sprites/jail door.png" id="26_4bhsi"]
-[ext_resource type="Texture2D" uid="uid://c0x4hvphvr4t1" path="res://ping_pong_PNG10372.png" id="29_r12xo"]
+[ext_resource type="Texture2D" uid="uid://c0x4hvphvr4t1" path="res://sprites/ping_pong_PNG10372.png" id="29_r12xo"]
 [ext_resource type="Texture2D" uid="uid://sr84nqefysh3" path="res://mini games sprites/ham.png" id="30_ol13x"]
 [ext_resource type="Texture2D" uid="uid://u3lwql5l6lus" path="res://mini games sprites/coin.png" id="31_06c17"]
-[ext_resource type="Texture2D" uid="uid://cjkhxdksdf54p" path="res://puzzle icon.png" id="34_i4iay"]
+[ext_resource type="Texture2D" uid="uid://cjkhxdksdf54p" path="res://sprites/puzzle icon.png" id="34_i4iay"]
 [ext_resource type="Texture2D" uid="uid://vhfh3sg8lwi7" path="res://mini games sprites/candle.png" id="34_qefbe"]
 
 [sub_resource type="Animation" id="Animation_vmxya"]
@@ -311,6 +311,34 @@ texture_filter = 1
 position = Vector2(-3.3333337, 2.666667)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("14_klaso")
+
+[node name="pingpong" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -36
+theme_override_fonts/font = ExtResource("2_qr7qa")
+theme_override_font_sizes/font_size = 68
+text = "
+        60 SECONDS ON CLIMB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="diff1" type="Sprite2D" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/pingpong"]
+z_index = -1
+texture_filter = 1
+position = Vector2(541, 69)
+texture = ExtResource("8_6sjds")
+
+[node name="GalleryItemLocked" type="Sprite2D" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/pingpong"]
+texture_filter = 1
+position = Vector2(181, 67)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_jcyua")
+
+[node name="pingpong long" type="Sprite2D" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/pingpong/GalleryItemLocked"]
+visible = false
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("29_r12xo")
 
 [node name="camo" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -631,34 +659,6 @@ texture_filter = 1
 position = Vector2(210, 67)
 texture = ExtResource("21_glprp")
 flip_h = true
-
-[node name="pingpong" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = -36
-theme_override_fonts/font = ExtResource("2_qr7qa")
-theme_override_font_sizes/font_size = 68
-text = "
-        60 SECONDS ON CLIMB"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="diff1" type="Sprite2D" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/pingpong"]
-z_index = -1
-texture_filter = 1
-position = Vector2(541, 69)
-texture = ExtResource("8_6sjds")
-
-[node name="GalleryItemLocked" type="Sprite2D" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/pingpong"]
-texture_filter = 1
-position = Vector2(181, 67)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_jcyua")
-
-[node name="pingpong long" type="Sprite2D" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/pingpong/GalleryItemLocked"]
-visible = false
-scale = Vector2(0.13, 0.13)
-texture = ExtResource("29_r12xo")
 
 [node name="ham" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2

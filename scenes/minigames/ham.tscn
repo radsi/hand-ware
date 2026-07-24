@@ -1,26 +1,29 @@
-[gd_scene load_steps=16 format=3 uid="uid://dngb7f2hlbrxh"]
+[gd_scene load_steps=18 format=3 uid="uid://dngb7f2hlbrxh"]
 
-[ext_resource type="Script" uid="uid://i2e5tq4ol2hu" path="res://scripts/player/player_hands_HAM.gd" id="1_6yhgi"]
+[ext_resource type="Script" uid="uid://bdcj04jjqpdjh" path="res://scripts/managers/ham_manager.gd" id="1_sfi1e"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="2_sfi1e"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_u6f72"]
 [ext_resource type="Texture2D" uid="uid://dd1uxcrghspfr" path="res://intro sprites/TextBG6.png" id="3_hk3xo"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="4_6yhgi"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="5_8d6j6"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="6_nxrlt"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="6_nxrlt"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="7_sfi1e"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="8_2iy5l"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="9_78mdk"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="10_744lu"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="9_78mdk"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="10_744lu"]
 [ext_resource type="Texture2D" uid="uid://c7ufayhr1k3r1" path="res://mini games sprites/ham knife.png" id="11_6yhgi"]
 [ext_resource type="Texture2D" uid="uid://sr84nqefysh3" path="res://mini games sprites/ham.png" id="12_8d6j6"]
 [ext_resource type="Texture2D" uid="uid://dkltk3vgqcccq" path="res://mini games sprites/ham_top.png" id="13_nxrlt"]
-[ext_resource type="Texture2D" uid="uid://pi2tauufj1l7" path="res://ham bg.jpg" id="14_8d6j6"]
+[ext_resource type="Texture2D" uid="uid://pi2tauufj1l7" path="res://sprites/ham bg.jpg" id="14_8d6j6"]
 [ext_resource type="AudioStream" uid="uid://d0abxdu3ymym4" path="res://sounds/cortandocarne.wav" id="15_nxrlt"]
+[ext_resource type="Texture2D" uid="uid://1ix5svce430v" path="res://mini games sprites/ham_plate.png" id="17_2iy5l"]
 
 [node name="Ham" type="Node2D"]
+script = ExtResource("1_sfi1e")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("1_6yhgi")
+script = ExtResource("2_sfi1e")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -38,6 +41,7 @@ texture = ExtResource("2_u6f72")
 flip_h = true
 
 [node name="TextBg1" type="Sprite2D" parent="."]
+visible = false
 z_index = 15
 texture_filter = 1
 position = Vector2(530, 400)
@@ -146,11 +150,9 @@ position = Vector2(493, 551)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("12_8d6j6")
 
-[node name="HamTop" type="Sprite2D" parent="."]
+[node name="HamTop" type="Sprite2D" parent="Ham"]
 z_index = 2
 texture_filter = 1
-position = Vector2(493, 551)
-scale = Vector2(1.2, 1.2)
 texture = ExtResource("13_nxrlt")
 
 [node name="HamBg" type="Sprite2D" parent="."]
@@ -163,3 +165,9 @@ texture = ExtResource("14_8d6j6")
 
 [node name="cut" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_nxrlt")
+
+[node name="HamPlate" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(508, 567)
+rotation = 0.17228866
+texture = ExtResource("17_2iy5l")

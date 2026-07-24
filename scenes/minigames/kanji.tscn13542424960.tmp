@@ -1,0 +1,232 @@
+[gd_scene load_steps=21 format=3 uid="uid://u6b87wyymavv"]
+
+[ext_resource type="Script" uid="uid://bnoykmuyjw0a6" path="res://scripts/managers/kanji_manager.gd" id="1_u58il"]
+[ext_resource type="Texture2D" uid="uid://5p8dd0ic5083" path="res://sprites/free-paper-background-1-897075787.jpg" id="1_xk8cc"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="3_0evvd"]
+[ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="4_wh7ls"]
+[ext_resource type="Texture2D" uid="uid://dd1uxcrghspfr" path="res://intro sprites/TextBG6.png" id="5_iwyxu"]
+[ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="6_bykoj"]
+[ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="7_52a6r"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="8_k1nlf"]
+[ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="9_tg30l"]
+[ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="10_np1hd"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="11_0evvd"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="12_5740h"]
+[ext_resource type="Texture2D" uid="uid://dm14g7mimuh55" path="res://mini games sprites/ink bottle back.png" id="13_bykoj"]
+[ext_resource type="FontFile" uid="uid://cj44ycu3swdbn" path="res://NotoSansJP-Regular.ttf" id="13_np1hd"]
+[ext_resource type="Texture2D" uid="uid://pn402f6cmcfh" path="res://mini games sprites/ink bottle front.png" id="14_52a6r"]
+[ext_resource type="Texture2D" uid="uid://b32lqu37vsfby" path="res://mini games sprites/brush.png" id="15_k1nlf"]
+[ext_resource type="Texture2D" uid="uid://rbkhxcq58hdi" path="res://mini games sprites/ink/ink1.png" id="16_k1nlf"]
+[ext_resource type="Script" uid="uid://c8ct50wpayead" path="res://scripts/minigames/brush_grabbable.gd" id="17_0evvd"]
+[ext_resource type="Texture2D" uid="uid://cd4hk207vhho0" path="res://mini games sprites/ink/ink2.png" id="17_tg30l"]
+[ext_resource type="AudioStream" uid="uid://bplhh8dyhjbdu" path="res://sounds/pencil-writing-on-paper-3-strokes-take-b.wav" id="18_tg30l"]
+
+[node name="Kanji" type="Node2D"]
+script = ExtResource("1_u58il")
+
+[node name="bg" type="Sprite2D" parent="."]
+modulate = Color(0.63648045, 0.63648045, 0.63648045, 1)
+z_index = -2
+position = Vector2(530, 531)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_xk8cc")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(540, 540)
+script = ExtResource("3_0evvd")
+
+[node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
+z_index = 10
+texture_filter = 1
+position = Vector2(-50, 100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_wh7ls")
+
+[node name="Hand2" type="Sprite2D" parent="CanvasGroup"]
+z_index = 10
+texture_filter = 1
+position = Vector2(50, 100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_wh7ls")
+flip_h = true
+
+[node name="TextBg1" type="Sprite2D" parent="."]
+z_index = 15
+texture_filter = 1
+position = Vector2(530, 400)
+scale = Vector2(3, 2)
+texture = ExtResource("5_iwyxu")
+script = ExtResource("6_bykoj")
+
+[node name="Label" type="Label" parent="TextBg1"]
+z_index = 15
+anchors_preset = -1
+anchor_left = 0.17228465
+anchor_top = 0.22580644
+anchor_right = 1.0599251
+anchor_bottom = 0.7741935
+offset_left = -96.333336
+offset_top = -58.5
+offset_right = -96.33334
+offset_bottom = -58.5
+scale = Vector2(0.6, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52a6r")
+theme_override_font_sizes/font_size = 64
+text = "DRAW"
+metadata/_edit_use_anchors_ = true
+
+[node name="Footer" type="Sprite2D" parent="."]
+z_index = 10
+texture_filter = 1
+position = Vector2(536, 1024)
+scale = Vector2(1.1, 1.06)
+texture = ExtResource("8_k1nlf")
+script = ExtResource("9_tg30l")
+
+[node name="HeartHand" type="Sprite2D" parent="Footer"]
+modulate = Color(0.8891468, 0.8891468, 0.88914675, 1)
+z_index = 2
+texture_filter = 1
+position = Vector2(368.46835, -13.207642)
+scale = Vector2(0.7, 0.733)
+texture = ExtResource("10_np1hd")
+
+[node name="Label" type="Label" parent="Footer"]
+anchors_preset = -1
+anchor_left = 0.71171165
+anchor_top = 0.33262315
+anchor_right = 0.8057116
+anchor_bottom = 1.018107
+offset_left = -500.00003
+offset_top = -62.0
+offset_right = -500.0
+offset_bottom = -62.000008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52a6r")
+theme_override_font_sizes/font_size = 64
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Footer"]
+anchors_preset = -1
+anchor_left = 0.6657657
+anchor_top = 0.19567865
+anchor_right = 0.7597657
+anchor_bottom = 0.8811625
+offset_left = -500.0
+offset_top = -62.0
+offset_right = -500.0
+offset_bottom = -62.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_52a6r")
+theme_override_font_sizes/font_size = 80
+text = "3"
+metadata/_edit_use_anchors_ = true
+
+[node name="TimerColor" type="ColorRect" parent="Footer"]
+z_index = 1
+offset_left = -361.26123
+offset_top = -38.67926
+offset_right = -321.26123
+offset_bottom = 1.3207397
+scale = Vector2(11.25, 1.85)
+color = Color(1, 0, 0, 1)
+
+[node name="FooterTimerBackground" type="Sprite2D" parent="Footer"]
+position = Vector2(-60.36035, 0)
+scale = Vector2(0.9009008, 0.94339615)
+texture = ExtResource("11_0evvd")
+
+[node name="FooterTimer" type="Sprite2D" parent="Footer"]
+z_index = 1
+position = Vector2(-60.36035, 9.536743e-05)
+scale = Vector2(0.90090084, 0.9433962)
+texture = ExtResource("12_5740h")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+z_index = -1
+offset_right = 1080.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(540, 540)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+canvas_item_default_texture_repeat = 1
+size = Vector2i(1080, 1080)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport"]
+anchors_preset = -1
+anchor_left = 0.372
+anchor_top = 0.14
+anchor_right = 0.657
+anchor_bottom = 0.554
+offset_left = 0.23999023
+offset_top = -0.19999695
+offset_right = 0.44000244
+offset_bottom = -0.32000732
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(154, 223)
+theme_override_fonts/font = ExtResource("13_np1hd")
+theme_override_font_sizes/font_size = 288
+text = "う"
+
+[node name="bottle" type="CanvasGroup" parent="."]
+position = Vector2(569, 746)
+scale = Vector2(0.6, 0.6)
+
+[node name="InkBottleBack" type="Sprite2D" parent="bottle"]
+texture_filter = 1
+texture = ExtResource("13_bykoj")
+
+[node name="InkBottleFront" type="Sprite2D" parent="bottle"]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("14_52a6r")
+
+[node name="Brush" type="Sprite2D" parent="bottle" groups=["grabbable"]]
+z_index = -1
+position = Vector2(-10.666668, -45.333313)
+rotation = -0.2009311
+texture = ExtResource("15_k1nlf")
+script = ExtResource("17_0evvd")
+rotation_on_grab = -40.0
+flip_H_on_right_hand = true
+
+[node name="Tip" type="Node2D" parent="bottle/Brush"]
+position = Vector2(3.575, 283.075)
+
+[node name="ink" type="CanvasGroup" parent="."]
+visible = false
+
+[node name="Ink1" type="Sprite2D" parent="ink"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(866, 194)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_k1nlf")
+
+[node name="Ink2" type="Sprite2D" parent="ink"]
+position = Vector2(206, 325)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_tg30l")
+
+[node name="Ink3" type="Sprite2D" parent="ink"]
+position = Vector2(896, 594)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_tg30l")
+
+[node name="Ink4" type="Sprite2D" parent="ink"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(350, 507)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_k1nlf")
+flip_h = true
+
+[node name="pencil" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_tg30l")
+volume_db = -5.0

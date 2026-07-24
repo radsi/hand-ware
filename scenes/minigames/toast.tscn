@@ -1,32 +1,34 @@
-[gd_scene load_steps=21 format=3 uid="uid://1s1pl6m3xk10"]
+[gd_scene load_steps=22 format=3 uid="uid://1s1pl6m3xk10"]
 
-[ext_resource type="Script" uid="uid://hktjje1v8nce" path="res://scripts/player/player_hands_JAM.gd" id="1_hrhrp"]
 [ext_resource type="Script" uid="uid://df4hj1ipouirf" path="res://scripts/managers/jam_manager.gd" id="1_wdi5t"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="2_0l7ur"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_ufpue"]
 [ext_resource type="Texture2D" uid="uid://tyu327hnqf5g" path="res://intro sprites/TextBG5.png" id="3_hrhrp"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="4_wdi5t"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="5_f28mj"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="6_g4scc"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="6_g4scc"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="7_clixc"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="8_0l7ur"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="9_2ohh2"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="10_4kksm"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="9_2ohh2"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="10_4kksm"]
 [ext_resource type="Texture2D" uid="uid://balhamsanka73" path="res://mini games sprites/toast.png" id="11_atnbw"]
 [ext_resource type="Texture2D" uid="uid://dymvfagkffv6x" path="res://mini games sprites/toast jam.png" id="12_hrhrp"]
 [ext_resource type="Texture2D" uid="uid://rdj32c8urq1f" path="res://mini games sprites/jam body.png" id="12_oni04"]
 [ext_resource type="Texture2D" uid="uid://cuhvw7i742r00" path="res://mini games sprites/jam head.png" id="13_2i12t"]
 [ext_resource type="Texture2D" uid="uid://bxod5aos2f8nf" path="res://mini games sprites/knife.png" id="14_sp480"]
 [ext_resource type="Texture2D" uid="uid://eo2cy7lcojca" path="res://mini games sprites/kinfe jam.png" id="15_ufpue"]
+[ext_resource type="Script" uid="uid://brsq3gw37m2v2" path="res://scripts/minigames/knife_grabbable.gd" id="17_0l7ur"]
 [ext_resource type="AudioStream" uid="uid://dbxsu5sp11733" path="res://sounds/bite.wav" id="18_f28mj"]
 [ext_resource type="AudioStream" uid="uid://b663840ehqscf" path="res://sounds/burp.wav" id="19_g4scc"]
-[ext_resource type="Texture2D" uid="uid://cu6da2j1pn8xl" path="res://picnic.jpg" id="20_clixc"]
+[ext_resource type="Texture2D" uid="uid://cu6da2j1pn8xl" path="res://sprites/picnic.jpg" id="20_clixc"]
 
-[node name="Toast" type="Node2D"]
+[node name="Toast" type="Node2D" node_paths=PackedStringArray("knife_jam")]
 script = ExtResource("1_wdi5t")
+knife_jam = NodePath("Knife/KinfeJam")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("1_hrhrp")
+script = ExtResource("2_0l7ur")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -162,12 +164,13 @@ texture_filter = 1
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("13_2i12t")
 
-[node name="Knife" type="Sprite2D" parent="."]
+[node name="Knife" type="Sprite2D" parent="." groups=["grabbable"]]
 texture_filter = 1
 position = Vector2(566, 745)
 rotation = -0.28634638
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("14_sp480")
+script = ExtResource("17_0l7ur")
 
 [node name="KinfeJam" type="Sprite2D" parent="Knife"]
 texture = ExtResource("15_ufpue")

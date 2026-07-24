@@ -1,18 +1,18 @@
-[gd_scene load_steps=25 format=3 uid="uid://d02k3u107pvo3"]
+[gd_scene load_steps=32 format=3 uid="uid://d02k3u107pvo3"]
 
 [ext_resource type="Script" uid="uid://ber35f63524c1" path="res://scripts/managers/coin_manager.gd" id="1_tqesv"]
 [ext_resource type="Texture2D" uid="uid://u3lwql5l6lus" path="res://mini games sprites/coin.png" id="2_jpmr8"]
+[ext_resource type="Script" uid="uid://cdgq6wv34i5ag" path="res://scripts/minigames/vendor_HANDS.gd" id="3_1e6g5"]
 [ext_resource type="Texture2D" uid="uid://catke2m4m2e7w" path="res://mini games sprites/keypad.png" id="3_rlben"]
-[ext_resource type="Script" uid="uid://cnokcqd6kldel" path="res://scripts/player/player_hands_COIN.gd" id="4_1e6g5"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="5_qn1vk"]
 [ext_resource type="Texture2D" uid="uid://dd1uxcrghspfr" path="res://intro sprites/TextBG6.png" id="6_pkcws"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="7_8k5g4"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="8_3xmel"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="9_wyaak"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="9_wyaak"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="10_0g878"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="11_x58g1"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="12_y4b30"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="13_fknm4"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="12_y4b30"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="13_fknm4"]
 [ext_resource type="Texture2D" uid="uid://cwhxeerl0ay7j" path="res://mini games sprites/vendor machine.png" id="14_tcxjt"]
 [ext_resource type="Texture2D" uid="uid://b15foodtc52ba" path="res://mini games sprites/crystal.png" id="15_2fapw"]
 [ext_resource type="Texture2D" uid="uid://b663vrfyrhwb8" path="res://mini games sprites/store/chocolate.png" id="16_bivpy"]
@@ -21,70 +21,48 @@
 [ext_resource type="Texture2D" uid="uid://bukx3qinsx6gr" path="res://mini games sprites/store/cookies.png" id="19_8m4pu"]
 [ext_resource type="Texture2D" uid="uid://d3mf1ysxi7nnj" path="res://mini games sprites/wallet.png" id="20_qr7sn"]
 [ext_resource type="AudioStream" uid="uid://b0l7xlk8k8n7" path="res://sounds/quarter-inserted-falls-into-coin-return.wav" id="21_4i658"]
+[ext_resource type="Texture2D" uid="uid://dgip3mqk1y6ao" path="res://mini games sprites/wallet front.png" id="21_jpmr8"]
 [ext_resource type="AudioStream" uid="uid://dj2kyl4hma7fy" path="res://sounds/short-cut-off-beep.wav" id="22_2l4lk"]
+[ext_resource type="Texture2D" uid="uid://b5eoqq58phi88" path="res://mini games sprites/shine/1.png" id="22_rlben"]
+[ext_resource type="Script" uid="uid://dx024o7sw3xyu" path="res://scripts/minigames/coin_grabbable.gd" id="23_1e6g5"]
 [ext_resource type="AudioStream" uid="uid://btql7gwdyj5wq" path="res://sounds/abdrtar__wrong.mp3" id="23_7llxo"]
 [ext_resource type="AudioStream" uid="uid://dakt8x08qkux6" path="res://sounds/krokulator__lever.wav" id="24_imlr6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e6g5"]
+atlas = ExtResource("22_rlben")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn1vk"]
+atlas = ExtResource("22_rlben")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkcws"]
+atlas = ExtResource("22_rlben")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8k5g4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e6g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn1vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkcws")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Coin" type="Node2D"]
 script = ExtResource("1_tqesv")
 
-[node name="Coin" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(207, 849)
-scale = Vector2(2, 2)
-texture = ExtResource("2_jpmr8")
-
-[node name="Keypad" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(930.00006, 737)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("3_rlben")
-
-[node name="1" type="Node2D" parent="Keypad"]
-position = Vector2(-184.4446, -175.55556)
-
-[node name="2" type="Node2D" parent="Keypad"]
-position = Vector2(-60.000137, -168.8889)
-
-[node name="3" type="Node2D" parent="Keypad"]
-position = Vector2(66.666534, -168.8889)
-
-[node name="4" type="Node2D" parent="Keypad"]
-position = Vector2(-186.66681, -55.555565)
-
-[node name="5" type="Node2D" parent="Keypad"]
-position = Vector2(-60.000137, -53.333344)
-
-[node name="6" type="Node2D" parent="Keypad"]
-position = Vector2(59.99987, -53.333344)
-
-[node name="7" type="Node2D" parent="Keypad"]
-position = Vector2(-191.11125, 60)
-
-[node name="8" type="Node2D" parent="Keypad"]
-position = Vector2(-62.22236, 60)
-
-[node name="9" type="Node2D" parent="Keypad"]
-position = Vector2(59.99987, 62.222214)
-
-[node name="0" type="Node2D" parent="Keypad"]
-position = Vector2(-64.44458, 173.33333)
-
-[node name="A" type="Node2D" parent="Keypad"]
-position = Vector2(186.66653, -168.8889)
-
-[node name="B" type="Node2D" parent="Keypad"]
-position = Vector2(186.66653, -55.555565)
-
-[node name="C" type="Node2D" parent="Keypad"]
-position = Vector2(184.44432, 62.222214)
-
-[node name="D" type="Node2D" parent="Keypad"]
-position = Vector2(184.44432, 177.77779)
-
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("4_1e6g5")
+script = ExtResource("3_1e6g5")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -202,20 +180,20 @@ position = Vector2(-60.36035, 9.536743e-05)
 scale = Vector2(0.90090084, 0.9433962)
 texture = ExtResource("13_fknm4")
 
-[node name="VendorMachine" type="Sprite2D" parent="."]
+[node name="Vendor" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(540, 525)
 scale = Vector2(0.725, 0.85)
 texture = ExtResource("14_tcxjt")
 
-[node name="Crystal" type="Sprite2D" parent="VendorMachine"]
+[node name="Crystal" type="Sprite2D" parent="Vendor"]
 modulate = Color(1, 1, 1, 0.44705883)
 z_index = -1
 position = Vector2(88.27585, -29.411793)
 scale = Vector2(1.172, 1)
 texture = ExtResource("15_2fapw")
 
-[node name="Label" type="Label" parent="VendorMachine"]
+[node name="Label" type="Label" parent="Vendor"]
 offset_left = 470.34485
 offset_top = -252.94115
 offset_right = 593.34485
@@ -227,76 +205,158 @@ text = "3C"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="slot" type="Node2D" parent="VendorMachine"]
+[node name="Label2" type="Label" parent="Vendor"]
+offset_left = 350.34482
+offset_top = -682.35284
+offset_right = 848.2759
+offset_bottom = -465.35284
+rotation = 0.43341908
+theme_override_colors/font_color = Color(0.29709297, 0.29709294, 0.2970929, 1)
+theme_override_fonts/font = ExtResource("8_3xmel")
+theme_override_font_sizes/font_size = 52
+text = "make sure to use your finger tip"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="slot" type="Node2D" parent="Vendor"]
 position = Vector2(550.3448, -5.8823624)
 
-[node name="items" type="CanvasGroup" parent="VendorMachine"]
+[node name="items" type="CanvasGroup" parent="Vendor"]
 z_index = -2
 
-[node name="Chocolate" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Chocolate" type="Sprite2D" parent="Vendor/items"]
 visible = false
 position = Vector2(-176.55168, 4.705902)
 scale = Vector2(0.3, 0.256)
 texture = ExtResource("16_bivpy")
 
-[node name="Soda" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Soda" type="Sprite2D" parent="Vendor/items"]
 visible = false
 position = Vector2(-455.1724, -314.1176)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("17_kf36p")
 
-[node name="Chips" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Chips" type="Sprite2D" parent="Vendor/items"]
 visible = false
 position = Vector2(-197.24138, -288.2353)
 rotation = 0.20508242
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("18_aencr")
 
-[node name="Cookies" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Cookies" type="Sprite2D" parent="Vendor/items"]
 visible = false
 position = Vector2(93.793106, -278.82355)
 rotation = -0.23076156
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("19_8m4pu")
 
-[node name="Cookies2" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Cookies2" type="Sprite2D" parent="Vendor/items"]
 visible = false
 position = Vector2(108.96552, 268.23535)
 rotation = -0.23076156
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("19_8m4pu")
 
-[node name="Soda2" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Soda2" type="Sprite2D" parent="Vendor/items"]
 visible = false
 position = Vector2(-455.1724, -314.1176)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("17_kf36p")
 
-[node name="Chocolate2" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Chocolate2" type="Sprite2D" parent="Vendor/items"]
 visible = false
 position = Vector2(-481.37927, 12.941196)
 scale = Vector2(0.3, 0.256)
 texture = ExtResource("16_bivpy")
 
-[node name="Soda3" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Soda3" type="Sprite2D" parent="Vendor/items"]
 visible = false
 modulate = Color(18.892157, 0, 0, 1)
 position = Vector2(89.65514, -1.176467)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("17_kf36p")
 
-[node name="Chips2" type="Sprite2D" parent="VendorMachine/items"]
+[node name="Chips2" type="Sprite2D" parent="Vendor/items"]
 visible = false
 position = Vector2(-166.89655, 247.05884)
 rotation = 0.20508242
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("18_aencr")
 
+[node name="Keypad" type="Sprite2D" parent="Vendor"]
+z_index = 1
+position = Vector2(537.9311, 249.41174)
+scale = Vector2(0.62068963, 0.52941173)
+texture = ExtResource("3_rlben")
+
+[node name="1" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(-184.4446, -175.55556)
+
+[node name="2" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(-60.000137, -168.8889)
+
+[node name="3" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(66.666534, -168.8889)
+
+[node name="4" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(-186.66681, -55.555565)
+
+[node name="5" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(-60.000137, -53.333344)
+
+[node name="6" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(59.99987, -53.333344)
+
+[node name="7" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(-191.11125, 60)
+
+[node name="8" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(-62.22236, 60)
+
+[node name="9" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(59.99987, 62.222214)
+
+[node name="0" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(-64.44458, 173.33333)
+
+[node name="A" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(186.66653, -168.8889)
+
+[node name="B" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(186.66653, -55.555565)
+
+[node name="C" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(184.44432, 62.222214)
+
+[node name="D" type="Node2D" parent="Vendor/Keypad"]
+position = Vector2(184.44432, 177.77779)
+
 [node name="Wallet" type="Sprite2D" parent="."]
-z_index = 3
+z_index = 1
 position = Vector2(215.00002, 866)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("20_qr7sn")
+
+[node name="Wallet2" type="Sprite2D" parent="Wallet"]
+z_index = 4
+position = Vector2(-6.1035156e-05, 0)
+texture = ExtResource("21_jpmr8")
+
+[node name="Coin" type="Sprite2D" parent="." groups=["grabbable"]]
+z_index = 2
+texture_filter = 1
+position = Vector2(206, 811)
+scale = Vector2(2, 2)
+texture = ExtResource("2_jpmr8")
+script = ExtResource("23_1e6g5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin"]
+position = Vector2(3, -35.5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8k5g4")
+frame = 1
+frame_progress = 0.3177124
 
 [node name="insert" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_4i658")

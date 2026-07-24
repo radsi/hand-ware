@@ -3,10 +3,10 @@ extends Node
 var colors = ["F75270", "EF9595", "F7CAC9"]
 var start_count := 4
 
-@onready var mouse_left_click_sprite = preload("res://left click.png")
-@onready var mouse_right_click_sprite = preload("res://right click.png")
-@onready var joystick_left_sprite = preload("res://left joystick.png")
-@onready var joystick_right_sprite = preload("res://right joystick.png")
+@onready var mouse_left_click_sprite = preload("res://sprites/left click.png")
+@onready var mouse_right_click_sprite = preload("res://sprites/right click.png")
+@onready var joystick_left_sprite = preload("res://sprites/left joystick.png")
+@onready var joystick_right_sprite = preload("res://sprites/right joystick.png")
 @onready var mouse = $mouse
 @onready var hand_left = $OpenHand
 @onready var hand_right = $OpenHand2
@@ -18,8 +18,8 @@ var index = 0
 func _ready():
 	
 	if globals.using_gamepad:
-		mouse_left_click_sprite = load("res://left joystick.png")
-		mouse_right_click_sprite = load("res://right joystick.png")
+		mouse_left_click_sprite = load("res://sprites/left joystick.png")
+		mouse_right_click_sprite = load("res://sprites/right joystick.png")
 	
 	mouse.texture = mouse_left_click_sprite
 	

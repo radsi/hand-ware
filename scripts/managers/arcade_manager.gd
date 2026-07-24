@@ -69,7 +69,7 @@ func _set_enemies() -> void:
 
 	for i in range(children.size()):
 		var child = children[i]
-		if i < 58:
+		if i < 47:
 			child.hide()
 		else:
 			active_enemies.append(child)

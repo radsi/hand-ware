@@ -1,7 +1,7 @@
 extends Node
 
 @onready var hands = $Current
-@onready var gallery_locked_sprite = preload("res://gallery item locked.png")
+@onready var gallery_locked_sprite = preload("res://sprites/gallery item locked.png")
 var item_under_mouse: Sprite2D = null
 var max_page = 1
 var page = 1

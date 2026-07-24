@@ -5,7 +5,7 @@ extends Node
 @onready var button_back = $buttonback
 @onready var scroll_container = $MarginContainer/VBoxContainer/ScrollContainer
 @onready var scroll_elements = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer
-@onready var gallery_item_sprite = preload("res://gallery item.png")
+@onready var gallery_item_sprite = preload("res://sprites/gallery item.png")
 
 func _ready():
 	bg1.global_position.y = globals.current_menu_bg_pos[0]

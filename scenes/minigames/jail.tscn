@@ -1,28 +1,46 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6itmulu6mtqc"]
+[gd_scene load_steps=23 format=3 uid="uid://b6itmulu6mtqc"]
 
-[ext_resource type="Script" uid="uid://c5o55f1lo8gr6" path="res://scripts/player/player_hands_BOX.gd" id="1_p13uc"]
+[ext_resource type="Script" uid="uid://45bahpjlvgtf" path="res://scripts/managers/jail_manager.gd" id="1_b7mpa"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="1_p13uc"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_plvxg"]
 [ext_resource type="Texture2D" uid="uid://dd1uxcrghspfr" path="res://intro sprites/TextBG6.png" id="3_b7mpa"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="4_8ogti"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="5_7s2g0"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="6_4v308"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="6_4v308"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="7_vlaok"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="8_t7srv"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="9_wnu5k"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="10_0pg0c"]
-[ext_resource type="Texture2D" uid="uid://b1bpfijsavwva" path="res://jail bg.jpg" id="11_n23tt"]
-[ext_resource type="Texture2D" uid="uid://cky3def6mdq2m" path="res://mini games sprites/line.png" id="12_7d6n5"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="9_wnu5k"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="10_0pg0c"]
+[ext_resource type="Texture2D" uid="uid://b1bpfijsavwva" path="res://sprites/jail bg.jpg" id="11_n23tt"]
+[ext_resource type="Shader" uid="uid://cak0rph0i2ccl" path="res://scripts/shaders/wall shake.gdshader" id="13_8ogti"]
+[ext_resource type="Texture2D" uid="uid://cc0ax8foo7u7l" path="res://mini games sprites/concrete.png" id="13_b7mpa"]
+[ext_resource type="Script" uid="uid://m4ljila17yuq" path="res://scripts/minigames/wall_interactable.gd" id="13_plvxg"]
 [ext_resource type="Texture2D" uid="uid://d1fhevnjk7d0e" path="res://mini games sprites/jail door.png" id="13_tcgvw"]
 [ext_resource type="AudioStream" uid="uid://du3xly14smoxw" path="res://sounds/knocking_wall.mp3" id="14_le3s1"]
 [ext_resource type="AudioStream" uid="uid://bbsw6yob15oq" path="res://sounds/_box-break_mixdown.wav" id="15_o0ouw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vliad"]
-size = Vector2(50, 92.66666)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7s2g0"]
+shader = ExtResource("13_8ogti")
+shader_parameter/shake_amount = 0.0
+shader_parameter/shake_speed = 25.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvhrw"]
-size = Vector2(529, 35.000015)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4v308"]
+shader = ExtResource("13_8ogti")
+shader_parameter/shake_amount = 0.0
+shader_parameter/shake_speed = 25.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlaok"]
+shader = ExtResource("13_8ogti")
+shader_parameter/shake_amount = 0.0
+shader_parameter/shake_speed = 25.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7srv"]
+shader = ExtResource("13_8ogti")
+shader_parameter/shake_amount = 0.0
+shader_parameter/shake_speed = 25.0
 
 [node name="Box" type="Node2D"]
+script = ExtResource("1_b7mpa")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 493)
@@ -35,12 +53,6 @@ position = Vector2(-50, 100)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_plvxg")
 
-[node name="Area2D" type="Area2D" parent="CanvasGroup/Hand1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasGroup/Hand1/Area2D"]
-position = Vector2(-3.3333435, 0.3333435)
-shape = SubResource("RectangleShape2D_vliad")
-
 [node name="Hand2" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
 texture_filter = 1
@@ -49,13 +61,8 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_plvxg")
 flip_h = true
 
-[node name="Area2D_right" type="Area2D" parent="CanvasGroup/Hand2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasGroup/Hand2/Area2D_right"]
-position = Vector2(-3.3333435, 0.3333435)
-shape = SubResource("RectangleShape2D_vliad")
-
 [node name="TextBg1" type="Sprite2D" parent="."]
+visible = false
 z_index = 100
 texture_filter = 1
 position = Vector2(540, 400)
@@ -152,6 +159,7 @@ scale = Vector2(0.90090084, 0.9433962)
 texture = ExtResource("10_0pg0c")
 
 [node name="JailBg" type="Sprite2D" parent="."]
+modulate = Color(0.5918081, 0.5918081, 0.5918081, 1)
 z_index = -999
 position = Vector2(542, 526)
 scale = Vector2(2.25, 2.25)
@@ -159,60 +167,51 @@ texture = ExtResource("11_n23tt")
 
 [node name="jail" type="CanvasGroup" parent="."]
 
-[node name="Line" type="Sprite2D" parent="jail" groups=["wall"]]
+[node name="Line" type="Sprite2D" parent="jail" node_paths=PackedStringArray("hit_sound", "break_sound") groups=["solids"]]
 z_index = 99
+material = SubResource("ShaderMaterial_7s2g0")
 position = Vector2(327, 481)
-rotation = 1.5707964
-texture = ExtResource("12_7d6n5")
+texture = ExtResource("13_b7mpa")
+script = ExtResource("13_plvxg")
+hit_sound = NodePath("../../knock")
+break_sound = NodePath("../../break")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="jail/Line"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jail/Line/StaticBody2D"]
-position = Vector2(2.5, 1.5)
-shape = SubResource("RectangleShape2D_yvhrw")
-
-[node name="Line2" type="Sprite2D" parent="jail" groups=["wall"]]
+[node name="Line2" type="Sprite2D" parent="jail" node_paths=PackedStringArray("hit_sound", "break_sound") groups=["solids"]]
 z_index = 99
+material = SubResource("ShaderMaterial_4v308")
 position = Vector2(751, 481)
-rotation = 1.5707964
-texture = ExtResource("12_7d6n5")
+texture = ExtResource("13_b7mpa")
 flip_h = true
+script = ExtResource("13_plvxg")
+hit_sound = NodePath("../../knock")
+break_sound = NodePath("../../break")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="jail/Line2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jail/Line2/StaticBody2D"]
-position = Vector2(2.5, 1.5)
-shape = SubResource("RectangleShape2D_yvhrw")
-
-[node name="Line3" type="Sprite2D" parent="jail" groups=["wall"]]
+[node name="Line3" type="Sprite2D" parent="jail" node_paths=PackedStringArray("hit_sound", "break_sound") groups=["solids"]]
 z_index = 99
-position = Vector2(538, 236)
-scale = Vector2(0.9, 1)
-texture = ExtResource("12_7d6n5")
+material = SubResource("ShaderMaterial_vlaok")
+position = Vector2(538.75146, 236)
+rotation = 1.5707964
+scale = Vector2(0.9, 1.0391649)
+texture = ExtResource("13_b7mpa")
+script = ExtResource("13_plvxg")
+hit_sound = NodePath("../../knock")
+break_sound = NodePath("../../break")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="jail/Line3"]
-position = Vector2(0, -8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jail/Line3/StaticBody2D"]
-position = Vector2(2.5, 1.5)
-shape = SubResource("RectangleShape2D_yvhrw")
-
-[node name="Line4" type="Sprite2D" parent="jail" groups=["wall"]]
+[node name="Line4" type="Sprite2D" parent="jail" node_paths=PackedStringArray("hit_sound", "break_sound") groups=["solids"]]
 z_index = 99
-position = Vector2(538, 727)
-scale = Vector2(0.9, 1)
-texture = ExtResource("12_7d6n5")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="jail/Line4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jail/Line4/StaticBody2D"]
-position = Vector2(2.5, 1.5)
-shape = SubResource("RectangleShape2D_yvhrw")
+material = SubResource("ShaderMaterial_t7srv")
+position = Vector2(539.12445, 727)
+rotation = 1.5707964
+scale = Vector2(0.9, 1.0392035)
+texture = ExtResource("13_b7mpa")
+script = ExtResource("13_plvxg")
+hit_sound = NodePath("../../knock")
+break_sound = NodePath("../../break")
 
 [node name="JailDoor" type="Sprite2D" parent="jail"]
 z_index = 99
-position = Vector2(542, 473)
-scale = Vector2(0.86, 0.86)
+position = Vector2(542, 494.845)
+scale = Vector2(0.86, 0.9445067)
 texture = ExtResource("13_tcgvw")
 
 [node name="knock" type="AudioStreamPlayer2D" parent="."]
@@ -221,8 +220,3 @@ stream = ExtResource("14_le3s1")
 [node name="break" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_o0ouw")
 volume_db = 5.0
-
-[connection signal="body_shape_entered" from="CanvasGroup/Hand1/Area2D" to="CanvasGroup" method="_on_area_2d_body_shape_entered"]
-[connection signal="body_shape_exited" from="CanvasGroup/Hand1/Area2D" to="CanvasGroup" method="_on_area_2d_body_shape_exited"]
-[connection signal="body_shape_entered" from="CanvasGroup/Hand2/Area2D_right" to="CanvasGroup" method="_on_area_2d_right_body_shape_entered"]
-[connection signal="body_shape_exited" from="CanvasGroup/Hand2/Area2D_right" to="CanvasGroup" method="_on_area_2d_right_body_shape_exited"]

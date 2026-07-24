@@ -3,6 +3,10 @@ extends Node
 @onready var original_toast_sprite = preload("res://mini games sprites/toast.png")
 @onready var toast_jam = $Toast/ToastJam
 @onready var toast = $Toast
+@export var knife_jam: Sprite2D
+
+var _last_knife_pos: Vector2
+
 var bite_count = 0
 var burp_played = false
 const BURP_WAIT := 0.5
@@ -35,6 +39,8 @@ func _handle_bites_async() -> void:
 	globals.is_playing_minigame_anim = false
 	if not globals.is_single_minigame: globals._start_roll()
 	toast.visible = false
+	
+	globals.game_score += 1
 
 	if globals.is_single_minigame:
 		bite_count = 0
@@ -43,3 +49,24 @@ func _handle_bites_async() -> void:
 		toast_jam.visible = true
 		toast.texture = original_toast_sprite
 		toast.visible = true
+
+func _hands_ready(hands: HANDS) -> void:
+	_last_knife_pos = knife_jam.global_position
+
+
+func _hands_process(hands: HANDS, delta: float) -> void:
+	if knife_jam == null or toast == null or toast.get_child_count() == 0:
+		return
+
+	if knife_jam.global_position == _last_knife_pos:
+		return
+
+	var toast_size = toast.scale * Vector2(toast.texture.get_width(), toast.texture.get_height())
+	var toast_rect = Rect2(toast.global_position - toast_size * 0.5, toast_size)
+
+	if toast_rect.has_point(knife_jam.global_position) and knife_jam.modulate.a >= 0.1:
+		knife_jam.modulate.a = max(0.0, knife_jam.modulate.a - (globals.game_speed / 1000.0) * 2 * delta)
+		var toast_child = toast.get_child(0)
+		toast_child.modulate.a = min(1.0, toast_child.modulate.a + (globals.game_speed / 1000.0) * delta)
+
+	_last_knife_pos = knife_jam.global_position

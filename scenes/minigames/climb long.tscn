@@ -1,25 +1,27 @@
-[gd_scene load_steps=16 format=3 uid="uid://cixrflpp0hrhq"]
+[gd_scene load_steps=17 format=3 uid="uid://cixrflpp0hrhq"]
 
-[ext_resource type="Script" uid="uid://cypa4ubl63rl0" path="res://scripts/player/player_hands_CLIMB.gd" id="1_uiju8"]
+[ext_resource type="Script" uid="uid://byr7jvwjmnhi2" path="res://scripts/managers/climb_manager.gd" id="1_ah3wg"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="1_foe3e"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_pdsk5"]
 [ext_resource type="Script" uid="uid://buy4sh406xno6" path="res://scripts/managers/bricks_manager.gd" id="3_3gio7"]
-[ext_resource type="Texture2D" uid="uid://cviajr77lsm3q" path="res://startline.png" id="4_8x6w1"]
+[ext_resource type="Texture2D" uid="uid://cviajr77lsm3q" path="res://sprites/startline.png" id="4_8x6w1"]
 [ext_resource type="Texture2D" uid="uid://dj75ulkuxeajo" path="res://intro sprites/TextBG1.png" id="5_wuhc3"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="6_pdsk5"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="7_wuhc3"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="8_3gio7"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="8_3gio7"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="9_5qqfy"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="10_pdsk5"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="11_pdsk5"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="12_wuhc3"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="11_pdsk5"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="12_wuhc3"]
 [ext_resource type="AudioStream" uid="uid://c4ivpwbt2y7yy" path="res://sounds/655621__hankof__brick-falling-on-floor.wav" id="13_p6ifb"]
 [ext_resource type="AudioStream" uid="uid://vy4pwnbb7ank" path="res://sounds/733234__profoundsounds__brickhit.mp3" id="14_foe3e"]
-[ext_resource type="Texture2D" uid="uid://8f50r1thmine" path="res://cdn.textures4photoshop.png" id="15_foe3e"]
+[ext_resource type="Texture2D" uid="uid://8f50r1thmine" path="res://sprites/cdn.textures4photoshop.png" id="15_foe3e"]
 
 [node name="climb" type="Node2D"]
+script = ExtResource("1_ah3wg")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
-script = ExtResource("1_uiju8")
+script = ExtResource("1_foe3e")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -36,10 +38,10 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_pdsk5")
 flip_h = true
 
-[node name="Grabables" type="CanvasGroup" parent="."]
+[node name="Grabbables" type="CanvasGroup" parent="."]
 script = ExtResource("3_3gio7")
 
-[node name="StarterBrick" type="Sprite2D" parent="Grabables"]
+[node name="StarterBrick" type="Sprite2D" parent="Grabbables"]
 texture_filter = 1
 position = Vector2(540, 73.75)
 scale = Vector2(0.7193972, 0.2551831)
@@ -146,7 +148,7 @@ stream = ExtResource("13_p6ifb")
 stream = ExtResource("14_foe3e")
 
 [node name="bg1" type="Sprite2D" parent="."]
-modulate = Color(0.7750634, 0.7750634, 0.7750634, 1)
+modulate = Color(0.49182606, 0.49182606, 0.49182606, 1)
 z_index = -1
 position = Vector2(520, 540)
 scale = Vector2(1.8, 1.8)

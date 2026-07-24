@@ -1,11 +1,11 @@
 extends Node
 
-@onready var text = $VendorMachine/Label
+@onready var text = $Vendor/Label
 @onready var coin = $Coin
-@onready var slot = $VendorMachine/slot
+@onready var slot = $Vendor/slot
 @onready var wrong = $wrong
 @onready var correct = $correct
-@onready var items = $VendorMachine/items
+@onready var items = $Vendor/items
 var current_item
 var original_item_pos
 var can_play_correct = true
@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 
 func set_item():
 	var number = randi() % 10
-	var letter = letters[randi() % letters.size()]
+	var letter = letters.pick_random()
 	text.text = str(number) + letter
 				
 	current_item = items.get_child(randi() % items.get_children().size())

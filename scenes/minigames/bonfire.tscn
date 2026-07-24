@@ -1,22 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbi4kxb2c00lw"]
+[gd_scene load_steps=19 format=3 uid="uid://bbi4kxb2c00lw"]
 
 [ext_resource type="Script" uid="uid://cgh5utwddmow4" path="res://scripts/managers/fire_manager.gd" id="1_045ua"]
-[ext_resource type="Script" uid="uid://dj0vwwkcqrglt" path="res://scripts/player/player_hands_FIRE.gd" id="2_wajfn"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="2_wajfn"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="3_cffij"]
 [ext_resource type="Texture2D" uid="uid://bv5npu7s4w5wp" path="res://intro sprites/TextBG7.png" id="4_wn4ak"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="5_1nk64"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="6_fo1ei"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="7_edppi"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="7_edppi"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="8_o1ygq"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="9_scwee"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="10_jv3qr"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="11_n4k0e"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="10_jv3qr"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="11_n4k0e"]
 [ext_resource type="Texture2D" uid="uid://cym2ls1o5qm2b" path="res://mini games sprites/fire/fan.png" id="12_d80tj"]
 [ext_resource type="Texture2D" uid="uid://x7g3xrf1jx0g" path="res://mini games sprites/fire/wood.png" id="13_atwlu"]
+[ext_resource type="Script" uid="uid://b0d43r1eivix" path="res://scripts/minigames/fan_grabbable.gd" id="13_cffij"]
 [ext_resource type="Texture2D" uid="uid://coecmf0iy3kft" path="res://mini games sprites/fire/fire1.png" id="14_pabhc"]
 [ext_resource type="AudioStream" uid="uid://5shsal0nf15d" path="res://sounds/bonfire.wav" id="15_7mgu3"]
 [ext_resource type="AudioStream" uid="uid://cgdo2j6k8m6ku" path="res://sounds/bonfire extinguish.wav" id="16_l5dto"]
-[ext_resource type="Texture2D" uid="uid://cqii6tyvvtou5" path="res://camping bg.jpg" id="17_wajfn"]
+[ext_resource type="Texture2D" uid="uid://cqii6tyvvtou5" path="res://sprites/camping bg.jpg" id="17_wajfn"]
 
 [node name="Fire" type="Node2D"]
 script = ExtResource("1_045ua")
@@ -43,7 +44,7 @@ flip_h = true
 [node name="TextBg1" type="Sprite2D" parent="."]
 z_index = 15
 texture_filter = 1
-position = Vector2(530, 400)
+position = Vector2(539, 400)
 scale = Vector2(3, 2)
 texture = ExtResource("4_wn4ak")
 script = ExtResource("5_1nk64")
@@ -134,11 +135,16 @@ position = Vector2(-60.36035, 9.536743e-05)
 scale = Vector2(0.90090084, 0.9433962)
 texture = ExtResource("11_n4k0e")
 
-[node name="Fan" type="Sprite2D" parent="."]
+[node name="Fan" type="Sprite2D" parent="." node_paths=PackedStringArray("fire") groups=["grabbable"]]
 z_index = 1
 position = Vector2(540, 789)
+rotation = 0.49323297
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("12_d80tj")
+script = ExtResource("13_cffij")
+fire = NodePath("../bonfire/fire")
+rotation_on_grab = -45.0
+flip_V_on_right_hand = true
 
 [node name="bonfire" type="CanvasGroup" parent="."]
 position = Vector2(540, 577)
@@ -158,7 +164,7 @@ flip_h = true
 
 [node name="fire" type="Sprite2D" parent="bonfire"]
 position = Vector2(2, -12)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_pabhc")
 offset = Vector2(-25, -235)
 
@@ -171,13 +177,6 @@ stream = ExtResource("16_l5dto")
 volume_db = 5.0
 
 [node name="CampingBg" type="Sprite2D" parent="."]
-modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
-z_index = -3
-position = Vector2(521, 474)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("17_wajfn")
-
-[node name="CampingBg2" type="Sprite2D" parent="."]
 modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
 z_index = -3
 position = Vector2(521, 474)

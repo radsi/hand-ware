@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://cfvjtfhf1skt3" path="res://scripts/managers/customization_manager.gd" id="1_73iet"]
 [ext_resource type="Texture2D" uid="uid://l2atiswygex0" path="res://transitions/bg.jpg" id="1_e40qk"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="2_gx5ds"]
-[ext_resource type="Texture2D" uid="uid://cw64dvnkk3oqm" path="res://arrow.png" id="3_73iet"]
+[ext_resource type="Texture2D" uid="uid://cw64dvnkk3oqm" path="res://sprites/arrow.png" id="3_73iet"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="3_acx06"]
-[ext_resource type="Texture2D" uid="uid://b1a546gu0sy1e" path="res://arrow_green.png" id="4_0vfys"]
+[ext_resource type="Texture2D" uid="uid://b1a546gu0sy1e" path="res://sprites/arrow_green.png" id="4_0vfys"]
 [ext_resource type="Texture2D" uid="uid://nfnuiy7leqsa" path="res://hand sprites/fist hand.png" id="4_ppfrd"]
-[ext_resource type="Texture2D" uid="uid://bh3rusuqfqwpi" path="res://arrow2.png" id="5_kx870"]
-[ext_resource type="Texture2D" uid="uid://c2isxy3781r0g" path="res://arrow_green2.png" id="6_acx06"]
-[ext_resource type="Texture2D" uid="uid://c5egsxqp6yhiq" path="res://gallery item.png" id="9_kx870"]
-[ext_resource type="Texture2D" uid="uid://cpgamml75pc7k" path="res://slider.png" id="12_5esjd"]
+[ext_resource type="Texture2D" uid="uid://bh3rusuqfqwpi" path="res://sprites/arrow2.png" id="5_kx870"]
+[ext_resource type="Texture2D" uid="uid://c2isxy3781r0g" path="res://sprites/arrow_green2.png" id="6_acx06"]
+[ext_resource type="Texture2D" uid="uid://c5egsxqp6yhiq" path="res://sprites/gallery item.png" id="9_kx870"]
+[ext_resource type="Texture2D" uid="uid://cpgamml75pc7k" path="res://sprites/slider.png" id="12_5esjd"]
 [ext_resource type="Texture2D" uid="uid://8cnk3vpniyt7" path="res://materiales/picker_gradient.tres" id="13_5esjd"]
-[ext_resource type="Texture2D" uid="uid://degr31mavnrht" path="res://marker.png" id="14_ww0q7"]
+[ext_resource type="Texture2D" uid="uid://degr31mavnrht" path="res://sprites/marker.png" id="14_ww0q7"]
 [ext_resource type="Script" uid="uid://dpq68ny2csq2w" path="res://scripts/misc/color_picker_marker.gd" id="15_redts"]
 [ext_resource type="Texture2D" uid="uid://bhctgd6x4a0k1" path="res://hand sprites/open hand_eyes.png" id="16_8qgph"]
 [ext_resource type="Texture2D" uid="uid://brujs4e13uioe" path="res://hand sprites/fist hand_eyes.png" id="17_w3cap"]
@@ -244,6 +244,7 @@ grow_vertical = 2
 script = ExtResource("1_73iet")
 
 [node name="sliders" type="CanvasGroup" parent="."]
+visible = false
 position = Vector2(789, 278)
 scale = Vector2(0.9, 1)
 
@@ -295,6 +296,7 @@ texture = ExtResource("14_ww0q7")
 script = ExtResource("15_redts")
 
 [node name="Current" type="CanvasGroup" parent="."]
+position = Vector2(230, 0)
 
 [node name="OpenHand" type="Sprite2D" parent="Current"]
 texture_filter = 1

@@ -1,20 +1,21 @@
-[gd_scene load_steps=20 format=3 uid="uid://c14nnbrubwgje"]
+[gd_scene load_steps=21 format=3 uid="uid://c14nnbrubwgje"]
 
 [ext_resource type="Script" uid="uid://bxmfqnbjs8mn4" path="res://scripts/managers/pingpong_manager.gd" id="1_4pmfr"]
-[ext_resource type="Script" uid="uid://dmsqa0uv6qynv" path="res://scripts/player/player_hands_PINGPONG.gd" id="1_gw2tx"]
 [ext_resource type="Texture2D" uid="uid://cb0v8wmpwl7nl" path="res://hand sprites/open hand.png" id="2_gw2tx"]
+[ext_resource type="Script" uid="uid://cd3cdhmju52o1" path="res://scripts/player_hands.gd" id="2_k7rr6"]
 [ext_resource type="Texture2D" uid="uid://dd1uxcrghspfr" path="res://intro sprites/TextBG6.png" id="3_8nfsf"]
 [ext_resource type="Script" uid="uid://cujlduaqdkpvi" path="res://scripts/managers/mgIntro_manager.gd" id="4_72wja"]
 [ext_resource type="FontFile" uid="uid://bj8pwquunfxx8" path="res://Pizza Tower.ttf" id="5_4pmfr"]
-[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://footer.png" id="6_3w3h4"]
+[ext_resource type="Texture2D" uid="uid://ddxgo2saijcvr" path="res://sprites/footer.png" id="6_3w3h4"]
 [ext_resource type="Script" uid="uid://ho5oyn8p3ner" path="res://scripts/managers/footer_manager.gd" id="7_k7rr6"]
 [ext_resource type="Texture2D" uid="uid://bbsvjnu6h384i" path="res://hand sprites/heart hand.png" id="8_5wo6c"]
-[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://footer-timer-background.png" id="9_ubep0"]
-[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://footer-timer.png" id="10_2oitb"]
+[ext_resource type="Texture2D" uid="uid://bptvtgxhawegg" path="res://sprites/footer-timer-background.png" id="9_ubep0"]
+[ext_resource type="Texture2D" uid="uid://bwex4tit2aiyt" path="res://sprites/footer-timer.png" id="10_2oitb"]
 [ext_resource type="Texture2D" uid="uid://c5086eujsx2iv" path="res://mini games sprites/racket.png" id="11_gw2tx"]
 [ext_resource type="Texture2D" uid="uid://d0pyumksoprxr" path="res://mini games sprites/ping pong ball.png" id="12_72wja"]
 [ext_resource type="Texture2D" uid="uid://bjs1020fk0yju" path="res://mini games sprites/pinponbg.png" id="13_4pmfr"]
 [ext_resource type="AudioStream" uid="uid://ik55vk0fo6xu" path="res://sounds/ping-pong-impact-organic.wav" id="15_3w3h4"]
+[ext_resource type="Script" uid="uid://rnfos6gwqd1q" path="res://scripts/minigames/racket_grabbable.gd" id="15_5wo6c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72wja"]
 friction = 0.5
@@ -34,7 +35,7 @@ script = ExtResource("1_4pmfr")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 position = Vector2(540, 540)
-script = ExtResource("1_gw2tx")
+script = ExtResource("2_k7rr6")
 
 [node name="Hand1" type="Sprite2D" parent="CanvasGroup"]
 z_index = 10
@@ -166,11 +167,12 @@ position = Vector2(540, 510)
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("13_4pmfr")
 
-[node name="Racket2" type="Sprite2D" parent="."]
+[node name="Racket2" type="Sprite2D" parent="." groups=["grabbable"]]
 position = Vector2(540, 754)
-rotation = 1.0223284
+rotation = 0.34906584
 scale = Vector2(0.32999998, 0.318)
 texture = ExtResource("11_gw2tx")
+script = ExtResource("15_5wo6c")
 
 [node name="Racket" type="CharacterBody2D" parent="Racket2"]
 position = Vector2(-1636.3636, -2371.0693)

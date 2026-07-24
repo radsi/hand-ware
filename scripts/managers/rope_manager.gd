@@ -8,6 +8,13 @@ var timer = 0
 var hearts_original_positions = {}
 var rope_original_pos
 
+var grab_margin: float = 20.0
+var rope_move_factor: float = 1.2
+var sound_played: bool = false
+
+var last_pos_left := Vector2.ZERO
+var last_pos_right := Vector2.ZERO
+
 func _ready() -> void:
 	rope_original_pos = rope.global_position
 
@@ -43,3 +50,40 @@ func _apply_random_transform(deco: Sprite2D) -> void:
 	deco.rotation_degrees = randf_range(0, 45)
 	var new_scale = randf_range(0.25, 0.5)
 	deco.scale = Vector2(new_scale, new_scale)
+
+func _hands_ready(hands: HANDS) -> void:
+	last_pos_left = hands.hand_left.global_position
+	last_pos_right = hands.hand_right.global_position
+
+
+func _hands_process(hands: HANDS, delta: float) -> void:
+	if girl_hand.global_position.y >= 180:
+		globals.minigame_completed = true
+		return
+
+	if hands.dragging_left and hands.hand_left.visible:
+		_handle_hand_move_over_rope(hands.hand_left, last_pos_left)
+	elif hands.dragging_right and hands.hand_right.visible:
+		_handle_hand_move_over_rope(hands.hand_right, last_pos_right)
+	else:
+		sound_played = false
+
+	if hands.dragging_left:
+		last_pos_left = hands.hand_left.global_position
+	if hands.dragging_right:
+		last_pos_right = hands.hand_right.global_position
+
+
+func _handle_hand_move_over_rope(hand: Node2D, prev_pos: Vector2) -> void:
+	if rope == null:
+		return
+
+	var dy = hand.global_position.y - prev_pos.y
+	if dy <= 0:
+		return
+
+	rope.global_position.y += dy * rope_move_factor
+
+	if not sound_played:
+		get_node("rope" + str(randi() % 2 + 1)).play()
+		sound_played = true

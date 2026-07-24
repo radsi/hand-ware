@@ -4,8 +4,8 @@ var timer_colors = ["#ABCDCB", "#EBE59B", "#E78775", "#C84361"]
 @onready var timer_color = $TimerColor
 @onready var heart_hand = $HeartHand
 @onready var footer_timer = $FooterTimer
-@onready var footer_sprite_1 = preload("res://footer-timer.png")
-@onready var footer_sprite_2 = preload("res://footer-timer-2.png")
+@onready var footer_sprite_1 = preload("res://sprites/footer-timer.png")
+@onready var footer_sprite_2 = preload("res://sprites/footer-timer-2.png")
 var current_footer_sprite = 1
 var initial_scale := Vector2.ONE
 

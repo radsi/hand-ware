@@ -36,7 +36,7 @@ var keyboard_buttons = []
 var current_button = 1
 
 func _ready() -> void:
-	
+	"""
 	if globals.username == "" and globals.pending_score:
 		for key in keyboard.get_children():
 			keyboard_buttons.append(key)
@@ -47,7 +47,8 @@ func _ready() -> void:
 		message.show()
 		message.get_child(2).show()
 		message.get_child(0).text = "What's your name??"
-	elif globals.pending_menu_messages.size() > 0:
+	el"""
+	if globals.pending_menu_messages.size() > 0:
 		_show_pending_message()
 	
 	
@@ -66,14 +67,6 @@ func _ready() -> void:
 		$"animation custom button".play("custom_button")
 
 func _process(delta: float) -> void:
-	if globals.username != "" and globals.pending_score:
-		globals.pending_score = false
-		await Talo.players.identify("username", globals.username)
-		await Talo.leaderboards.add_entry("handware-leaderboard", globals.game_score, {
-			"skin": globals.skin
-		})
-		globals.game_score = -1
-	
 	# --- D-PAD ---
 	var dpad_left = Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_LEFT)
 	var dpad_right = Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_RIGHT)

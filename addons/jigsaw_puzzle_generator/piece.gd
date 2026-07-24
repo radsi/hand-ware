@@ -9,12 +9,10 @@ var region:Rect2
 var sides:Dictionary
 var mask:Texture2D
 
-# For dragging
 var dragging:bool = false
 var mouse_inside = false
 var offset_value:Vector2
 
-# For connecting
 var group:Array[Piece]
 var top_neighbor:Piece = null
 var right_neighbor:Piece = null
@@ -22,9 +20,10 @@ var bottom_neighbor:Piece = null
 var left_neighbor:Piece = null
 var target_node = null
 
+var locked = false
+
 func _ready() -> void:
 	region_enabled = true
-	#$Area2D/CollisionShape2D.shape.size = Vector2(region.size.x, region.size.y)
 	var shader =  load("res://addons/jigsaw_puzzle_generator/piece.tres")
 	
 	material = shader.duplicate(false)
@@ -65,8 +64,7 @@ func next_to_neighbor(check_whole_piece:bool) -> Piece:
 	if check_whole_piece:
 		for area in overlapping:
 			var owner = area.get_parent()
-			
-			# Eww arrays are gross
+		
 			if owner == top_neighbor: return top_neighbor
 			if owner == right_neighbor: return right_neighbor
 			if owner == bottom_neighbor: return bottom_neighbor

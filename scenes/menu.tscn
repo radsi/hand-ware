@@ -5,25 +5,25 @@
 [ext_resource type="Texture2D" uid="uid://dxgq1wxu5q6as" path="res://hand sprites/palm hand.png" id="2_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://dqtbnellwt2jc" path="res://hand sprites/POVlike hand.png" id="4_4ytvr"]
 [ext_resource type="AudioStream" uid="uid://bjhwi16ko1ihm" path="res://sounds/477803__saltbearer__snappy-lo-fi-perc-resonances.wav" id="5_4ytvr"]
-[ext_resource type="Texture2D" uid="uid://clpspuy257db8" path="res://message.png" id="6_g3eks"]
-[ext_resource type="Texture2D" uid="uid://dwqm5laa2uilq" path="res://SpaceInvaders.png" id="7_v86rl"]
+[ext_resource type="Texture2D" uid="uid://clpspuy257db8" path="res://sprites/message.png" id="6_g3eks"]
+[ext_resource type="Texture2D" uid="uid://dwqm5laa2uilq" path="res://sprites/SpaceInvaders.png" id="7_v86rl"]
 [ext_resource type="Texture2D" uid="uid://l2atiswygex0" path="res://transitions/bg.jpg" id="8_13sgg"]
 [ext_resource type="Texture2D" uid="uid://balhamsanka73" path="res://mini games sprites/toast.png" id="8_i6lef"]
 [ext_resource type="Texture2D" uid="uid://cgx4juqgdoc6p" path="res://mini games sprites/girl hand.png" id="9_mj5lg"]
 [ext_resource type="AudioStream" uid="uid://hcne7nxxgd22" path="res://sounds/clapping-hands.mp3" id="10_70i5f"]
-[ext_resource type="Texture2D" uid="uid://ctg81sh5c2by3" path="res://woodicon.png" id="10_ufwb2"]
+[ext_resource type="Texture2D" uid="uid://ctg81sh5c2by3" path="res://sprites/woodicon.png" id="10_ufwb2"]
 [ext_resource type="Texture2D" uid="uid://d1fhevnjk7d0e" path="res://mini games sprites/jail door.png" id="11_6cdou"]
 [ext_resource type="Texture2D" uid="uid://dtl5akw64uc4" path="res://mini games sprites/ink bottle.png" id="12_i42df"]
 [ext_resource type="Texture2D" uid="uid://vhfh3sg8lwi7" path="res://mini games sprites/candle.png" id="13_7jp70"]
 [ext_resource type="Texture2D" uid="uid://sr84nqefysh3" path="res://mini games sprites/ham.png" id="13_jamij"]
-[ext_resource type="Texture2D" uid="uid://c0x4hvphvr4t1" path="res://ping_pong_PNG10372.png" id="14_mxgkd"]
+[ext_resource type="Texture2D" uid="uid://c0x4hvphvr4t1" path="res://sprites/ping_pong_PNG10372.png" id="14_mxgkd"]
 [ext_resource type="Texture2D" uid="uid://dvywnga1sjvia" path="res://mini games sprites/soccer ball.png" id="15_b5gwo"]
 [ext_resource type="Texture2D" uid="uid://bhctgd6x4a0k1" path="res://hand sprites/open hand_eyes.png" id="15_oi1it"]
 [ext_resource type="Texture2D" uid="uid://brujs4e13uioe" path="res://hand sprites/fist hand_eyes.png" id="16_fy8yy"]
-[ext_resource type="Texture2D" uid="uid://wq0pmoorqcpw" path="res://custom icon.png" id="17_3dmrc"]
+[ext_resource type="Texture2D" uid="uid://wq0pmoorqcpw" path="res://sprites/custom icon.png" id="17_3dmrc"]
 [ext_resource type="Texture2D" uid="uid://d1mrao3pdvet" path="res://hand sprites/open hand_fire.png" id="17_6wigr"]
-[ext_resource type="Texture2D" uid="uid://cjkhxdksdf54p" path="res://puzzle icon.png" id="17_bugl6"]
-[ext_resource type="Texture2D" uid="uid://3ocnp3qxwir2" path="res://custom icon2.png" id="18_81l6r"]
+[ext_resource type="Texture2D" uid="uid://cjkhxdksdf54p" path="res://sprites/puzzle icon.png" id="17_bugl6"]
+[ext_resource type="Texture2D" uid="uid://3ocnp3qxwir2" path="res://sprites/custom icon2.png" id="18_81l6r"]
 [ext_resource type="Texture2D" uid="uid://4i1cf5x5j8lv" path="res://mini games sprites/valve.png" id="18_leckd"]
 [ext_resource type="Texture2D" uid="uid://cfnw2a1umf03s" path="res://hand sprites/fist hand_fire.png" id="18_lnf0i"]
 [ext_resource type="Texture2D" uid="uid://dw76vvrwbouh" path="res://mini games sprites/samurai 1.png" id="19_tg78l"]
@@ -31,26 +31,26 @@
 [ext_resource type="Texture2D" uid="uid://cnjpqqh7tdgsr" path="res://mini games sprites/bosses/gas.png" id="20_055ta"]
 [ext_resource type="Texture2D" uid="uid://lwj1fhr7k277" path="res://hand sprites/open hand_camo.png" id="20_g54pe"]
 [ext_resource type="Texture2D" uid="uid://dhu0gxyygt15l" path="res://hand sprites/fist hand_camo.png" id="21_48ryc"]
-[ext_resource type="Texture2D" uid="uid://cwiwonq1sjm2n" path="res://gallery icon 2.png" id="22_ffqrc"]
+[ext_resource type="Texture2D" uid="uid://cwiwonq1sjm2n" path="res://sprites/gallery icon 2.png" id="22_ffqrc"]
 [ext_resource type="Texture2D" uid="uid://67m3bcjsttlv" path="res://hand sprites/open hand_caution.png" id="22_vhsb5"]
 [ext_resource type="Texture2D" uid="uid://dif2866ktpwx8" path="res://hand sprites/fist hand_caution.png" id="23_hwfsl"]
 [ext_resource type="Texture2D" uid="uid://dq2p27jerg1lf" path="res://hand sprites/open hand_real.png" id="24_a04p5"]
-[ext_resource type="Texture2D" uid="uid://54gg58vr4y2" path="res://gallery icon.png" id="24_x16fv"]
+[ext_resource type="Texture2D" uid="uid://54gg58vr4y2" path="res://sprites/gallery icon.png" id="24_x16fv"]
 [ext_resource type="Texture2D" uid="uid://dyk1idfs6okm" path="res://hand sprites/fist hand_real.png" id="25_b5gwo"]
-[ext_resource type="Texture2D" uid="uid://c5egsxqp6yhiq" path="res://gallery item.png" id="27_mhjd8"]
+[ext_resource type="Texture2D" uid="uid://c5egsxqp6yhiq" path="res://sprites/gallery item.png" id="27_mhjd8"]
 [ext_resource type="Texture2D" uid="uid://v6k8ihhvp02k" path="res://hand sprites/open hand_striped.png" id="27_ruys5"]
 [ext_resource type="Texture2D" uid="uid://db8d8v8unsll7" path="res://hand sprites/like hand.png" id="28_d3h35"]
 [ext_resource type="Texture2D" uid="uid://bi6k5y5xsvmvh" path="res://hand sprites/fist hand_striped.png" id="28_jlmas"]
 [ext_resource type="Texture2D" uid="uid://bhfjwa827leh5" path="res://hand sprites/open hand_dalmata.png" id="29_qfcyc"]
 [ext_resource type="Texture2D" uid="uid://tghgj6km07yq" path="res://hand sprites/fist hand_dalmata.png" id="30_spe5f"]
-[ext_resource type="Texture2D" uid="uid://bc1se3nye7tc" path="res://leaderboard icon.png" id="31_0qewb"]
+[ext_resource type="Texture2D" uid="uid://bc1se3nye7tc" path="res://sprites/leaderboard icon.png" id="31_0qewb"]
 [ext_resource type="Texture2D" uid="uid://b1lsk1k184epd" path="res://hand sprites/open hand_hearts.png" id="31_jcbs5"]
 [ext_resource type="Texture2D" uid="uid://cp34ei74jek0o" path="res://hand sprites/fist hand_heats.png" id="32_jamij"]
-[ext_resource type="Texture2D" uid="uid://cyfudot7pfgu6" path="res://leaderboard icon 2.png" id="34_mhjd8"]
-[ext_resource type="Texture2D" uid="uid://c8cwxvrd665w1" path="res://diff icon.png" id="41_qwtqu"]
-[ext_resource type="Texture2D" uid="uid://bpqft4rejn3s1" path="res://info icon.png" id="42_21umf"]
-[ext_resource type="Texture2D" uid="uid://cst7kqfiolupl" path="res://diff icon 2.png" id="45_dg0of"]
-[ext_resource type="Texture2D" uid="uid://b4cokfxheh5lw" path="res://info icon 2.png" id="47_bugl6"]
+[ext_resource type="Texture2D" uid="uid://cyfudot7pfgu6" path="res://sprites/leaderboard icon 2.png" id="34_mhjd8"]
+[ext_resource type="Texture2D" uid="uid://c8cwxvrd665w1" path="res://sprites/diff icon.png" id="41_qwtqu"]
+[ext_resource type="Texture2D" uid="uid://bpqft4rejn3s1" path="res://sprites/info icon.png" id="42_21umf"]
+[ext_resource type="Texture2D" uid="uid://cst7kqfiolupl" path="res://sprites/diff icon 2.png" id="45_dg0of"]
+[ext_resource type="Texture2D" uid="uid://b4cokfxheh5lw" path="res://sprites/info icon 2.png" id="47_bugl6"]
 
 [sub_resource type="Animation" id="Animation_mhnvy"]
 length = 0.001
@@ -307,6 +307,7 @@ offset_bottom = -0.12307739
 grow_horizontal = 2
 rotation = 0.30102697
 pivot_offset = Vector2(550, 125)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("1_yqeox")
 theme_override_font_sizes/font_size = 120
 text = "HAND
@@ -1265,6 +1266,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("31_0qewb")
 
 [node name="DiffIcon" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(540, 865)
 scale = Vector2(0.8, 0.8)
