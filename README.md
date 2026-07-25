@@ -46,5 +46,12 @@ Get the highest score possible by completing as many microgames as you can.
 
 ---
 
+# Setup
+
+To setup this project you can clone this repository and open it with godot.
+Or you can download the build from releases and play it directly
+
+---
+
 ## Theme Selection
 I chose the Indie Game theme because I wanted to make an easily accessible game, without the need for downloads, and playable from the web; simple but creative.
