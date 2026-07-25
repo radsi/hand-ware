@@ -22,6 +22,7 @@ func _pick_random_breakable_wall() -> void:
 
 func _on_wall_broken(wall: Node) -> void:
 	globals.game_score += 1
+	globals.minigame_completed = true
 	if globals.is_single_minigame:
 		globals.is_playing_minigame_anim = true
 		await get_tree().create_timer(1.5).timeout

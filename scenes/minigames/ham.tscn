@@ -41,7 +41,6 @@ texture = ExtResource("2_u6f72")
 flip_h = true
 
 [node name="TextBg1" type="Sprite2D" parent="."]
-visible = false
 z_index = 15
 texture_filter = 1
 position = Vector2(530, 400)

@@ -13,6 +13,7 @@ config_version=5
 config/name="Hand Ware"
 run/main_scene="uid://re18gkg4sw4r"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
