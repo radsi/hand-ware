@@ -43,3 +43,8 @@ Earn high scores to unlock:
 # 🏆 Goal
 
 Get the highest score possible by completing as many microgames as you can.
+
+---
+
+## Theme Selection
+I chose the Indie Game theme because I wanted to make an easily accessible game, without the need for downloads, and playable from the web; simple but creative.
