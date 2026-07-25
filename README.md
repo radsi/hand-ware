@@ -13,36 +13,7 @@ Each hand works independently and can interact with the world using its own cont
 - Cleaning.
 - Cutting.
 - Dodging.
-- Operating.
   ...
-
----
-
-# 🕹️ Features
-
-## Dynamic Difficulty System
-
-The game gets harder as you progress:
-
-- Faster gameplay.
-- Less time.
-- More pressure.
-- New challenges.
-
-The further you go, the more chaotic it becomes.
-
-## Unlockables
-
-Earn high scores to unlock:
-
-- New microgames.
-- New hand skins.
-
----
-
-# 🏆 Goal
-
-Get the highest score possible by completing as many microgames as you can.
 
 ---
 
