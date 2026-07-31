@@ -24,5 +24,10 @@ Or you can download the build from releases and play it directly
 
 ---
 
+## AI Usage
+AI has been used to help me optimize code and solve problems.
+
+---
+
 ## Theme Selection
 I chose the Indie Game theme because I wanted to make an easily accessible game, without the need for downloads, and playable from the web; simple but creative.
