@@ -19,7 +19,7 @@ Each hand works independently and can interact with the world using its own cont
 
 # Setup
 
-Clone this repository: git clone <repository-url>
+Clone this repository: git clone `git clone <repository-url>`
 
 Open Godot, select Import (or Open if the project is already listed), navigate to the cloned repository and select the project.godot file. Run the project by pressing F5 or clicking the Run Project button in the Godot editor.
 
